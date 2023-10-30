@@ -3,7 +3,7 @@ import Link from "next/link";
 import "@/styles/NavBar.css";
 export default function NavBar() {
   return (
-    <header className={`bg-background-50 font-domine`}>
+    <header className={`bg-gradient-to-b from-background-100 to-background-50 font-domine`}>
       <nav className={`flex flex-row justify-between`}>
         <div className={`flex flex-wrap items-center`}>
           {/*<Image
