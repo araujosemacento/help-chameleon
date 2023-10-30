@@ -13,7 +13,7 @@ export default function NavBar() {
               width={80}
               height={80}
               />*/}
-          <h3 className={`p-3 text-text-600`}>Prog II - Help Chameleon</h3>
+          <h3 className={`p-3 text-text-600 sm:text-lg lg:text-2xl`}>Prog II - Help Chameleon</h3>
         </div>
         <div className="flex text-text-600 font-bold items-center">
           <Link

@@ -4,5 +4,5 @@
 @tailwind utilities;
 */
 .btn{
-    @apply border-b-2 border-b-transparent transition-colors hover:border-b-text-600 rounded-lg py-1 px-2 mx-2;
+    @apply border-b-2 border-b-transparent transition-colors hover:border-b-text-600 rounded-lg py-1 px-2 mx-2 sm:text-sm lg:text-base;
 }
