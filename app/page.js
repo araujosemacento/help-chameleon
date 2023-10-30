@@ -1,9 +1,11 @@
-import Image from 'next/image'
+import NavBar from "@/components/NavBar"
 
 export default function Home() {
   return (
-    <main className={`text-red-700`}>
-      <h1>teste</h1>
+    <main className={`justify-between h-[100%]`}>
+      <NavBar />
+      <div></div>
+      <div></div>
     </main>
   )
 }

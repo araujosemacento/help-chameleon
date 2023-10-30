@@ -81,6 +81,7 @@ module.exports = {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        domine: ["Domine", "serif"],
       },
     },
   },

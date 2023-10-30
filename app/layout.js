@@ -1,7 +1,8 @@
-import { Inter } from "next/font/google";
+import { Inter, Domine } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const domine = Domine({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Help Chameleon",
@@ -32,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>{children}</body>
+      <body className={[inter.className, domine.className]}>{children}</body>
     </html>
   );
 }
