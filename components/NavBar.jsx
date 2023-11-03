@@ -1,34 +1,21 @@
-import Image from "next/image";
 import Link from "next/link";
-import "@/styles/NavBar.css";
+
 export default function NavBar() {
   return (
-    <header className={`bg-gradient-to-b from-background-100 to-background-50 font-domine`}>
-      <nav className={`flex flex-row justify-between`}>
-        <div className={`flex flex-wrap items-center`}>
-          {/*<Image
-              className={`p-4`}
-              src="/icon-192x192.png"
-              alt="Camaleão"
-              width={80}
-              height={80}
-              />*/}
-          <h3 className={`p-3 text-text-600 sm:text-lg lg:text-2xl`}>Prog II - Help Chameleon</h3>
-        </div>
-        <div className="flex text-text-600 font-bold items-center">
-          <Link
-            className={`btn`}
-            href={`#`}
-          >
-            Fazer Login
-          </Link>
-          <Link
-            className={`btn`}
-            href={`#`}
-          >
-            Cadastre-se
-          </Link>
-        </div>
+    <header className={`flex bg-background-50 text-text-900 py-3 px-4 justify-between items-center font-serif`}>
+      <h2>Programação II</h2>
+      <nav className={`items-center font-bold`}>
+        <ul className={`flex flex-row gap-4`}>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="#">Login</Link>
+          </li>
+          <li>
+            <Link href="#">Cadastro</Link>
+          </li>
+        </ul>
       </nav>
     </header>
   );
