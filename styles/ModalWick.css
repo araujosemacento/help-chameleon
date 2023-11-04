@@ -1,0 +1,35 @@
+@keyframes wick {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.wick[data-style="smooth"] {
+  animation: wick 5s linear backwards;
+  transform-origin: left center;
+}
+
+/*
+
+<Transition nodeRef={nodeRef} in={open} timeout={5000}>
+              {(state) => (
+                <div
+                  ref={nodeRef}
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state],
+                  }}
+                  className={`fixed bottom-0 left-0 bg-[${
+                    prefersDarkMode
+                      ? approvedGlobal
+                        ? green[800]
+                        : red[800]
+                      : approvedGlobal
+                      ? green[100]
+                      : red[100]
+                  }] h-1`}
+                ></div>
+              )}
+            </Transition>
+
+*/
