@@ -185,16 +185,19 @@ const TriggerButton = styled(Button)(
 
 export default function TransitionsModal(approved) {
   approvedGlobal = approved.approved;
-  const [prefersDarkMode] = React.useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
   const [open, setOpen] = React.useState(false);
   const [width, setWidth] = React.useState(0);
 
   React.useEffect(() => {
+    const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    prefersDarkMode = colorScheme.matches;
+    console.log(prefersDarkMode);
+  }, [open]);
+
+  React.useEffect(() => {
     if (open) {
       setTimeout(() => {
-        const updateWidth = width + 1/10;
+        const updateWidth = width + 1 / 10;
         setWidth(updateWidth);
       }, 1);
     }
@@ -233,7 +236,7 @@ export default function TransitionsModal(approved) {
                 prefersDarkMode ? "#9C27B0" : "#673AB7"
               }]`}
               value={width}
-              color={`gray`}
+              color={`${prefersDarkMode ? "red" : "gray"}`}
               size="sm"
             />
           </ModalContent>
