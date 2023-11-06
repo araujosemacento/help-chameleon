@@ -197,7 +197,7 @@ export default function TransitionsModal(approved) {
   React.useEffect(() => {
     if (open) {
       setTimeout(() => {
-        const updateWidth = width + 1 / 10;
+        const updateWidth = width + 1 / 20;
         setWidth(updateWidth);
       }, 1);
     }
@@ -226,17 +226,21 @@ export default function TransitionsModal(approved) {
         <Fade timeout={250} in={open}>
           <ModalContent sx={style}>
             <h3 id="transition-modal-title" className="modal-title">
-              Text in a child modal
+              {approvedGlobal ? "Parabéns!" : "Poxa! Tente novamente :("}
             </h3>
             <p id="transition-modal-description" className="modal-description">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              {approvedGlobal
+                ? "Você concluiu o exercício com sucesso."
+                : "Não foi dessa vez, mas tente revisar os conteúdos do exercício e tente novamente. Vou estar esperando!"}
             </p>
             <Progress
               className={`bg-transparent border-[${
                 prefersDarkMode ? "#9C27B0" : "#673AB7"
               }]`}
               value={width}
-              color={`${prefersDarkMode ? "red" : "gray"}`}
+              color={`${
+                prefersDarkMode ? (approvedGlobal ? "green" : "red") : "gray"
+              }`}
               size="sm"
             />
           </ModalContent>
