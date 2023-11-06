@@ -148,9 +148,9 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply bg-background-200;
+  @apply bg-background-100;
 }
 
 h1,

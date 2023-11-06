@@ -120,6 +120,7 @@ module.exports = withMT({
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         domine: ["Domine", "serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

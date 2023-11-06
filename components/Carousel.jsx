@@ -1,10 +1,35 @@
 import { Carousel } from "@material-tailwind/react";
 import Image from "next/image";
+import * as React from "react";
 
 export default function CustomCarousel() {
+  const [imageHeight, setImageHeight] = React.useState(0);
+  const [imageWidth, setImageWidth] = React.useState(0);
+  const heightRef = React.useRef(null);
+  const widthRef = React.useRef(null);
+
+  const clientHeight = heightRef.current
+    ? heightRef.current.clientHeight
+    : null;
+  const clientWidth = widthRef.current ? widthRef.current.clientWidth : null;
+
+  React.useEffect(() => {
+    if (heightRef.current && widthRef.current) {
+      setImageHeight(heightRef.current.clientHeight);
+      setImageWidth(widthRef.current.clientWidth);
+      console.log(clientHeight, clientWidth, imageHeight, imageWidth);
+    }
+  }, [imageHeight, clientHeight, imageWidth, clientWidth]);
+
+  const setRefs = (element) => {
+    heightRef.current = element;
+    widthRef.current = element;
+  }
+
   return (
     <Carousel
-      className="rounded-xl w-[500px] relative"
+      ref={setRefs}
+      className="rounded-xl max-w-[600px] max-h-[400px] relative overflow-hidden"
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
           {new Array(length).fill("").map((_, i) => (
@@ -20,28 +45,44 @@ export default function CustomCarousel() {
       )}
     >
       <Image
-        src="/photo-1493246507139-91e8fad9978e.png"
+        src="/image1.jpg"
         alt="image 1"
-        width={500}
-        height={500}
+        width={imageWidth}
+        height={imageHeight}
         loading="lazy"
-        className="h-[300px] object-cover pointer-events-none"
+        className={`h-[${imageHeight}px] w-[${imageWidth}px] object-cover pointer-events-none`}
       />
       <Image
-        src="/photo-1497436072909-60f360e1d4b1.png"
+        src="/image2.jpg"
         alt="image 2"
-        width={500}
-        height={500}
+        width={imageWidth}
+        height={imageHeight}
         loading="lazy"
-        className="h-[300px] object-cover pointer-events-none"
+        className={`h-[${imageHeight}px] w-[${imageWidth}px] object-cover pointer-events-none`}
       />
       <Image
-        src="/photo-1518623489648-a173ef7824f3.png"
+        src="/image3.jpg"
         alt="image 3"
-        width={500}
-        height={500}
+        width={imageWidth}
+        height={imageHeight}
         loading="lazy"
-        className="h-[300px] object-cover pointer-events-none"
+        className={`h-[${imageHeight}px] w-[${imageWidth}px] object-cover pointer-events-none`}
+      />
+      <Image
+        src="/image4.png"
+        alt="image 4"
+        width={imageWidth}
+        height={imageHeight}
+        loading="lazy"
+        className={`h-[${imageHeight}px] w-[${imageWidth}px] object-cover pointer-events-none`}
+      />
+      <Image
+        src="/image5.jpg"
+        alt="image 5"
+        width={imageWidth}
+        height={imageHeight}
+        loading="lazy"
+        className={`h-[${imageHeight}px] w-[${imageWidth}px] object-cover pointer-events-none`}
       />
     </Carousel>
   );
