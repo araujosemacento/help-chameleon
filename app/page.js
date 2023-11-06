@@ -12,7 +12,6 @@ import NavBar from "@/components/NavBar";
 import CustomCarousel from "@/components/Carousel";
 import { useRouter } from "next/navigation";
 
-
 const theme = createTheme({
   palette: {
     hameleon: {
@@ -33,7 +32,9 @@ export default function Home() {
     <div className={`flex flex-col max-h-screen`}>
       <StyledEngineProvider injectFirst>
         <NavBar />
-        <main className={`flex flex-row justify-center h-screen`}>
+        <main
+          className={`flex flex-col sm:flex-row justify-center sm:h-screen`}
+        >
           <section
             className={`flex place-content-center items-center w-1/2 max-h-screen`}
           >
@@ -59,7 +60,15 @@ export default function Home() {
               it&apos;s a disease. It&apos;s a horrible, horrible disease.
             </p>
             <ThemeProvider theme={theme}>
-              <Button className="font-bold rounded-2xl px-16" onClick={() => {router.push("/testes")}} variant="contained" size="large" color="hameleon">
+              <Button
+                className="font-bold rounded-2xl px-16"
+                onClick={() => {
+                  router.push("/testes");
+                }}
+                variant="contained"
+                size="large"
+                color="hameleon"
+              >
                 Fazer Login
               </Button>
             </ThemeProvider>
