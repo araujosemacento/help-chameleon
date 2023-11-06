@@ -63,7 +63,7 @@ export default function Home() {
               <Button
                 className="font-bold rounded-2xl px-16"
                 onClick={() => {
-                  router.push("/testes");
+                  router.push("/login");
                 }}
                 variant="contained"
                 size="large"
