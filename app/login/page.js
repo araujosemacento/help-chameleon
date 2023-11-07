@@ -90,7 +90,6 @@ export default function Login() {
                 Fazer Login
               </Button>
               <p className={`text-text-100 px-12 text-justify font-bold`}>
-                {" "}
                 ————— OU —————
               </p>
               <Button
