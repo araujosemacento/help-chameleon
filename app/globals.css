@@ -212,6 +212,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--background-100);
 }
 
 h1,

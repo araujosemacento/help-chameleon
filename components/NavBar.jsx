@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function NavBar() {
   return (
-    <header className={`flex flex-row p-2 w-full`}>
+    <header className={`flex flex-row p-2 w-full bg-accent-600`}>
       <div className={`flex flex-row items-center gap-6 mx-2`}>
         <Image
           src="/icon-192x192.png"
