@@ -1,11 +1,11 @@
 {
-    "theme_color": "#710af0",
-    "background_color": "#e4d4f7",
+    "theme_color": "#a61fad",
+    "background_color": "#e6e6e6",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "Help Chameleon",
-    "short_name": "Chm_Hlp",
+    "short_name": "Hameleon",
     "description": "Prot\u00f3tipo para Projeto Integrado I - Sistemas e M\u00eddias Digitais",
     "icons": [
         {

@@ -1,80 +1,55 @@
 "use client";
 
 import * as React from "react";
-import {
-  styled,
-  createTheme,
-  ThemeProvider,
-  StyledEngineProvider,
-} from "@mui/material/styles";
-import Button from "@mui/material/Button";
 import NavBar from "@/components/NavBar";
-import CustomCarousel from "@/components/Carousel";
 import { useRouter } from "next/navigation";
-
-const theme = createTheme({
-  palette: {
-    hameleon: {
-      main: "var(--background-500)",
-      light: "var(--accent-700)",
-      dark: "var(--accent-700)",
-      contrastText: "var(--text-100)",
-    },
-  },
-});
-
+import { Button } from "@mui/material";
 export default function Home() {
-  const heightRef = React.useRef(null);
-  React.useLayoutEffect(() => {});
   const router = useRouter();
 
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [size, setSize] = React.useState(0);
+  const [panel, setPanel] = React.useState(true);
+
+  React.useEffect(() => {
+    setSize(window.innerWidth);
+    setIsMobile(size < 720);
+  }, [size]);
+
   return (
-    <div className={`flex flex-col max-h-screen`}>
-      <StyledEngineProvider injectFirst>
-        <NavBar />
-        <main
-          className={`flex flex-col sm:flex-row justify-center sm:h-screen`}
+    <div className={`flex flex-col min-h-screen bg-background-100`}>
+      <NavBar />
+      <main
+        className={`flex relative flex-col md:flex-row m-auto bg-background-200 w-[70vw] h-[70vh] rounded-xl shadow-xl overflow-hidden`}
+      >
+        <section
+          className={`flex absolute w-full h-full top-0 left-0 z-10 transition-all duration-600`}
+          style={
+            isMobile
+              ? { transform: `translateY(-${panel ? 0 : 100}%)` }
+              : { transform: `translateX(-${panel ? 0 : 100}%)` }
+          }
+        />
+        <section
+          className={`flex absolute w-full md:w-[70%] h-[70%] md:h-full top-[65%] md:top-0 md:left-[65%] rounded-3xl bg-gradient-to-br from-primary-200 to-accent-400 z-20 transition-all duration-600 overflow-hidden shadow-[0_0_5px_0.25px_var(--secondary-600)]`}
+          style={
+            isMobile
+              ? { transform: `translateY(-${panel ? 0 : 143}%)` }
+              : { transform: `translateX(-${panel ? 0 : 143}%)` }
+          }
         >
-          <section
-            className={`flex place-content-center items-center w-1/2 max-h-screen`}
-          >
-            <CustomCarousel />
-          </section>
-          <section
-            className={`flex flex-col gap-8 place-content-center items-center w-1/3 max-h-screen`}
-          >
-            <h1 className={`text-text-600 text-center`}>
-              Bem-vindo(a) à cadeira de Programação II!
-            </h1>
-            <p className={`text-text-800 px-12 text-justify`}>
-              Never thought I&apos;d make it. Three days grade school, three
-              days high school. Those were awkward. Three days college. I&apos;m
-              glad I took a day and hitchhiked around the hive. You did come
-              back different.
-            </p>
-            <p className={`text-text-800 px-12 text-justify`}>
-              How come you don&apos;t fly everywhere? It&apos;s exhausting. Why
-              don&apos;t you run everywhere? It&apos;s faster. Yeah, OK, I see,
-              I see. All right, your turn. TiVo. You can just freeze live TV?
-              That&apos;s insane! You don&apos;t have that? We have Hivo, but
-              it&apos;s a disease. It&apos;s a horrible, horrible disease.
-            </p>
-            <ThemeProvider theme={theme}>
-              <Button
-                className="font-bold rounded-2xl px-16"
-                onClick={() => {
-                  router.push("/login");
-                }}
-                variant="contained"
-                size="large"
-                color="hameleon"
-              >
-                Fazer Login
-              </Button>
-            </ThemeProvider>
-          </section>
-        </main>
-      </StyledEngineProvider>
+          <div className="h-full w-1/2 p-10"></div>
+          <div className="h-full w-1/2 p-10"></div>
+        </section>
+        <section
+          className={`flex absolute w-full h-full top-[100%] md:top-0 md:left-[100%] z-10 transition-all duration-600`}
+          style={
+            isMobile
+              ? { transform: `translateY(-${panel ? 0 : 100}%)` }
+              : { transform: `translateX(-${panel ? 0 : 100}%)` }
+          }
+        />
+      </main>
     </div>
   );
 }

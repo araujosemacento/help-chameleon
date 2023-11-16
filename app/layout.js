@@ -1,9 +1,10 @@
-import { Inter, Domine, Poppins } from "next/font/google";
+import { Montserrat, Bitter, Sono } from "next/font/google";
+import { Providers } from "@/app/providers";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-const domine = Domine({ subsets: ["latin"] });
-const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
+const bitter = Bitter({ subsets: ["latin"] });
+const sono = Sono({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Help Chameleon",
@@ -13,9 +14,9 @@ export const metadata = {
   icons: { apple: "/icon.png" },
   application: {
     name: "Help Chameleon",
-    short_name: "Chm_Hlp",
-    theme_color: "#710af0",
-    background_color: "#e4d4f7",
+    short_name: "Hameleon",
+    theme_color: "#a61fad",
+    background_color: "#e6e6e6",
     display: "standalone",
   },
   apple: {
@@ -34,7 +35,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className={[inter.className, domine.className, poppins.className]}>{children}</body>
+      <body
+        className={[montserrat.className, bitter.className, sono.className]}
+      >
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
