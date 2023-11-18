@@ -1,17 +1,13 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 const withMT = require("@material-tailwind/react/utils/withMT");
-const { nextui } = require("@nextui-org/react");
 module.exports = withMT({
-  corePlugins: {
-    preflight: false,
-  },
+
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -159,12 +155,11 @@ module.exports = withMT({
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        domine: ["Domine", "serif"],
-        poppins: ["Poppins", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        bitter: ["Bitter", "serif"],
+        sono: ["Sono", "monospace"],
       },
     },
   },
-  darkMode: "class",
-  plugins: [nextui()],
+  plugins: [],
 });

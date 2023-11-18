@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 
 const withPWA = require("next-pwa");
 const plugin = require("tailwindcss");
@@ -11,6 +11,12 @@ const nextConfig = {
     //disable: process.env.NODE_ENV === 'development',
     images: {
       unoptimized: true,
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "**",
+        },
+      ],
     },
   }),
 };

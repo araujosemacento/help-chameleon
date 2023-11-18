@@ -1,5 +1,5 @@
 import { Montserrat, Bitter, Sono } from "next/font/google";
-import { Providers } from "@/app/providers";
+import Providers from "@/app/providers";
 import "./globals.css";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
