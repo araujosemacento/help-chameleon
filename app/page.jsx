@@ -32,7 +32,7 @@ export default function Home() {
     <div className={`flex flex-col min-h-screen bg-background-50`}>
       <NavBar />
       <main
-        className={`flex relative flex-col md:flex-row m-auto bg-background-100 w-[70vw] h-[70vh] rounded-xl shadow-xl overflow-hidden`}
+        className={`flex relative flex-col md:flex-row m-auto bg-background-100 w-[80vw] h-[80vh] rounded-xl shadow-xl overflow-hidden`}
       >
         <section
           className={`flex absolute w-full h-full top-0 left-0 z-10 transition-all duration-600`}
@@ -42,12 +42,12 @@ export default function Home() {
               : { transform: `translateX(-${panel ? 0 : 100}%)` }
           }
         >
-          <div className="flex flex-col absolute top-0 bottom-[35%] w-full md:left-0 md:right-[35%] md:h-full md:w-auto justify-center gap-4 p-6 md:p-10">
-            <div className="flex flex-col rounded-xl shadow-lg bg-background-200">
-              <h1 className="text-base md:text-xl text-text-900 m-8 mt-6 mb-2 md:mb-4">
+          <div className="flex flex-col absolute top-0 bottom-[35%] w-full md:left-0 md:right-[35%] md:h-full md:w-auto justify-center items-center gap-4 p-6 md:p-10">
+            <div className="flex flex-col md:w-3/4 w-full overflow-auto rounded-xl shadow-lg bg-background-200">
+              <h1 className="text-base md:text-2xl text-text-900 m-8 mt-6 mb-2 md:mb-4">
                 Bem-vindo(a) de volta!
               </h1>
-              <p className="text-xs text-text-700 mx-8 mb-2">
+              <p className="text-xs md:text-base text-text-700 mx-8 mb-2">
                 Entre com uma de suas contas:
               </p>
               <div className="flex flex-row w-full justify-center gap-4 my-4">
@@ -79,19 +79,19 @@ export default function Home() {
                 <span className="text-text-500 text-xs">OU</span>
                 <hr className="w-1/2 border-text-500" />
               </div>
-              <p className="text-xs text-text-700 m-2 mx-8 md:mx-8 md:m-4">
+              <p className="text-xs md:text-base text-text-700 m-2 mx-8 md:mx-8 md:m-4">
                 Entre com e-mail e senha:
               </p>
-              <div className="flex flex-col place-content-center mb-4 mx-4 md:mx-8 gap-4">
+              <div className="flex flex-col place-content-center mb-4 mx-4 md:mx-8 gap-4 md:gap-6">
                 <Input
-                  variant="standard"
+                  variant={`${isMobile ? "outlined" : "standard"}`}
                   type="email"
                   color="deep-purple"
                   label="E-mail"
                   className="text-text-800"
                 />
                 <Input
-                  variant="standard"
+                  variant={`${isMobile ? "outlined" : "standard"}`}
                   type="password"
                   color="deep-purple"
                   label="Senha"
@@ -100,7 +100,7 @@ export default function Home() {
                 <Button
                   color="deep-purple"
                   variant="gradient"
-                  size="sm"
+                  size={`${isMobile ? "sm" : "md"}`}
                   className="m-2"
                 >
                   Entrar
