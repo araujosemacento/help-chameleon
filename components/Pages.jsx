@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import { useAuth } from "@/context/AuthContext";
 import {
   Avatar,
   Button,
@@ -13,6 +14,8 @@ import {
 } from "@heroicons/react/24/solid";
 
 export function Inicio({ onSelect }) {
+  const { user } = useAuth();
+
   const reroute = (index) => {
     onSelect(index);
   };
@@ -77,6 +80,24 @@ export function Inicio({ onSelect }) {
 }
 
 export function Entrar({ onSelect }) {
+  const { user, signInWithGoogle, signInWithGithub } = useAuth();
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      console.error("Erro ao tentar logar com o Google:", error);
+    }
+  };
+
+  const handleGithubSignIn = async () => {
+    try {
+      await signInWithGithub();
+    } catch (error) {
+      console.error("Erro ao tentar logar com o GitHub:", error);
+    }
+  }
+
   const reroute = (index) => {
     onSelect(index);
   };
@@ -113,6 +134,7 @@ export function Entrar({ onSelect }) {
             </h1>
             <div className="flex flex-row w-full gap-6 justify-center">
               <Button
+                onClick={handleGoogleSignIn}
                 color="deep-purple"
                 className="flex flex-row gap-2 items-center"
               >
@@ -123,6 +145,7 @@ export function Entrar({ onSelect }) {
                 Google
               </Button>
               <Button
+                onClick={handleGithubSignIn}
                 color="deep-purple"
                 className="flex flex-row gap-2 items-center"
               >
@@ -176,6 +199,8 @@ export function Entrar({ onSelect }) {
   );
 }
 export function Cadastrar({ onSelect }) {
+  const { user } = useAuth();
+
   const reroute = (index) => {
     onSelect(index);
   };
@@ -264,22 +289,32 @@ export function Cadastrar({ onSelect }) {
 }
 
 export function Exercicios() {
+  const { user } = useAuth();
+
   return <div className="m-auto text-text-900">Exercícios</div>;
 }
 
 export function TesteDeNivel() {
+  const { user } = useAuth();
+
   return <div className="m-auto text-text-900">Teste de Nível</div>;
 }
 
 export function Desafios() {
+  const { user } = useAuth();
+
   return <div className="m-auto text-text-900">Desafios</div>;
 }
 
 export function Ranking() {
+  const { user } = useAuth();
+
   return <div className="m-auto text-text-900">Ranking</div>;
 }
 
 export function Perfil() {
+  const { user } = useAuth();
+
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
       <section className="flex flex-row w-full items-center justify-between p-8 px-16">
