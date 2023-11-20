@@ -20,6 +20,13 @@ export function Inicio({ onSelect }) {
     onSelect(index);
   };
 
+  React.useEffect(() => {
+    if (user) {
+      reroute("profile");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
   return (
     <div className="flex flex-row h-full w-full text-text-900">
       <section className="flex flex-col gap-4 w-1/2 p-2">
@@ -96,7 +103,14 @@ export function Entrar({ onSelect }) {
     } catch (error) {
       console.error("Erro ao tentar logar com o GitHub:", error);
     }
-  }
+  };
+
+  React.useEffect(() => {
+    if (user) {
+      reroute("profile");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   const reroute = (index) => {
     onSelect(index);
@@ -205,6 +219,13 @@ export function Cadastrar({ onSelect }) {
     onSelect(index);
   };
 
+  React.useEffect(() => {
+    if (user) {
+      reroute("profile");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
   return (
     <div className="flex flex-row h-full w-full text-text-900">
       <section className="flex flex-col gap-4 w-1/2 p-2">
@@ -234,7 +255,15 @@ export function Cadastrar({ onSelect }) {
           >
             <div className="flex flex-row items-center justify-center gap-2">
               <h1 className="text-center text-xl">Crie uma conta:</h1>
-              <Tooltip content={<div className="text-center">Caso queira criar uma nova conta associada a sua conta Google ou Github, utilize as opções disponíveis na página de login.</div>}>
+              <Tooltip
+                content={
+                  <div className="text-center">
+                    Caso queira criar uma nova conta associada a sua conta
+                    Google ou Github, utilize as opções disponíveis na página de
+                    login.
+                  </div>
+                }
+              >
                 <InformationCircleIcon className="w-5 animate-pulse hover:animate-none" />
               </Tooltip>
             </div>
@@ -315,11 +344,19 @@ export function Ranking() {
 export function Perfil() {
   const { user } = useAuth();
 
+  React.useEffect(() => {
+    if (user) {
+      console.log(user);
+    }
+  });
+
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
       <section className="flex flex-row w-full items-center justify-between p-8 px-16">
         <div className="flex flex-col gap-3 w-[40vw]">
-          <h2 className="text-accent-600">Nome</h2>
+          <h2 className="text-accent-600">{`${
+            user ? user.displayName : "Usuário"
+          }`}</h2>
           <p className="text-text-900 font-semibold">Matrícula:</p>
           <p className="text-text-900">
             We try not to sting. It&apos;s usually fatal for us. So you have to
@@ -331,7 +368,7 @@ export function Perfil() {
         <Avatar
           variant="circular"
           alt="Remy Sharp"
-          src="https://i.pravatar.cc/300"
+          src={`${user ? user.photoURL : "https://i.pravatar.cc/300"}`}
           className="w-[10vw] h-[10vw]"
         />
       </section>
