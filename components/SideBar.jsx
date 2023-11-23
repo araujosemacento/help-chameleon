@@ -2,7 +2,6 @@
 "use client";
 
 import React from "react";
-import { useAuth } from "@/context/AuthContext";
 import { Button } from "@material-tailwind/react";
 import {
   DocumentTextIcon,
@@ -10,16 +9,9 @@ import {
   BoltIcon,
   TrophyIcon,
   UserIcon,
-  ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/solid";
 
 export default function Sidebar({ onSelect }) {
-  const { user, signOut } = useAuth();
-
-  const handleSignOut = async () => {
-    await signOut();
-  };
-
   const [selected, setSelected] = React.useState("profile");
 
   const handleSelectSidebar = (index) => {
@@ -101,23 +93,6 @@ export default function Sidebar({ onSelect }) {
           <UserIcon className="w-[2vw] mr-5 text-text-800" />
           <p className="text-[1vw] text-text-800">Perfil</p>
         </Button>
-        <div className="flex flex-col w-full h-full justify-self-end">
-          <Button
-            onClick={() => {
-              handleSelectSidebar("logout");
-              handleSignOut();
-            }}
-            className="bg-transparent border border-transparent hover:border-background-100 items-center flex "
-            style={
-              selected === "logout"
-                ? { boxShadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)" }
-                : {}
-            }
-          >
-            <ArrowRightOnRectangleIcon className="w-[2vw] mr-5 text-text-800" />
-            <p className="text-[1vw] text-text-800">Sair</p>
-          </Button>
-        </div>
       </div>
       {/* TODO: Aagar essa div aqui debaixo */}
       <div className="flex flex-row justify-between absolute bottom-4">
