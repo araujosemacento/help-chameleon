@@ -4,13 +4,9 @@ import { useAuth } from "@/context/AuthContext";
 import {
   Avatar,
   Button,
-  Checkbox,
-  Input,
-  Tooltip,
 } from "@material-tailwind/react";
 import {
   LockClosedIcon,
-  InformationCircleIcon,
 } from "@heroicons/react/24/solid";
 
 export function Inicio({ onSelect }) {
@@ -112,14 +108,6 @@ export function Ranking() {
 
 export function Perfil() {
   const { user } = useAuth();
-
-  React.useEffect(() => {
-    if (user) {
-      console.log(user);
-    } else {
-      reroute("home");
-    }
-  });
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">

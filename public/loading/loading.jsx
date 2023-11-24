@@ -4,7 +4,7 @@ import "@/public/loading/loading.css";
 export default function Loading() {
   return (
     <div className="flex flex-row container m-auto absolute w-screen h-screen overflow-hidden">
-      <div className=" absolute w-full top-1/2 translate-x-[2.5%]">
+      <div className="absolute w-full top-1/2 translate-x-[2.5%]">
         <img src="/loading/hormeleon.svg" alt="poggers" className="print w-[5vw] absolute top-1/2 left-0 rotate-[5deg]" />
         <img src="/loading/hormeleon.svg" alt="poggers" className="print w-[5vw] absolute top-1/2 left-0 translate-x-[75%] translate-y-[-200%] rotate-[-5deg]" />
         <img src="/loading/hormeleon.svg" alt="poggers" className="print w-[5vw] absolute top-1/2 left-0 translate-x-[200%] translate-y-[-125%] rotate-[20deg]" />
