@@ -10,14 +10,12 @@ export default function Home() {
   const { isMobile, windowSize } = useMobile();
   const { user } = useAuth();
   const router = useRouter();
-  
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000);
+      setLoading(false);
     } else {
       router.push("/login");
     }
@@ -28,7 +26,7 @@ export default function Home() {
       {loading ? (
         <img className="m-auto" src="gear.svg" alt="loading" />
       ) : (
-        <p className="m-auto">Você está dentro da aplicação</p>
+        <p className="m-auto">{user.displayName ? user.displayName : "Login"}</p>
       )}
     </div>
   );

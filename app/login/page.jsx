@@ -9,10 +9,26 @@ import Loading from "@/public/loading/loading";
 
 export default function Login() {
   const { isMobile, windowSize } = useMobile();
-  const { user } = useAuth();
+  const { user, signInWithGoogle, signInWithGithub } = useAuth();
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      console.log("Erro ao logar com o Google:", error);
+    }
+  };
+
+  const handleGithubSignIn = async () => {
+    try {
+      await signInWithGithub();
+    } catch (error) {
+      console.log("Erro ao logar com o GitHub:", error);
+    }
+  };
 
   useEffect(() => {
     if (!user) {
@@ -40,7 +56,7 @@ export default function Login() {
             {!isMobile && (
               <button
                 onClick={() => router.push("/cadastro")}
-                className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:bg-accent-600 active:translate-y-[4px] active:shadow-none text-white"
+                className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none text-white"
               >
                 Cadastre-se
               </button>
@@ -68,7 +84,7 @@ export default function Login() {
               </div>
               <button
                 type="submit"
-                className="w-full p-3 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:bg-accent-600 active:translate-y-[5px] active:shadow-none text-white"
+                className="w-full p-3 text-center font-bold text-xl bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white"
               >
                 Entrar
               </button>
@@ -78,7 +94,10 @@ export default function Login() {
                 <hr className="w-full border-text-600" />
               </div>
               <div className="flex flex-col md:flex-row gap-4 w-full">
-                <button className="flex w-full p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_4px_0_0_var(--accent-700)] hover:bg-accent-600 active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2">
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="flex w-full p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_4px_0_0_var(--accent-700)] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2"
+                >
                   <img
                     src="https://api.iconify.design/akar-icons:google-fill.svg?color=%23ffffff"
                     alt="Google icon"
@@ -86,7 +105,10 @@ export default function Login() {
                   />
                   <p className="text-lg">Google</p>
                 </button>
-                <button className="flex w-full p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:bg-accent-600 active:translate-y-[4px] active:shadow-none text-white justify-center items-center gap-2">
+                <button
+                  onClick={handleGithubSignIn}
+                  className="flex w-full p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none text-white justify-center items-center gap-2"
+                >
                   <img
                     src="https://api.iconify.design/mdi:github.svg?color=%23ffffff"
                     alt="Google icon"
