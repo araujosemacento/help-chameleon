@@ -15,9 +15,11 @@ export default function Home() {
 
   useEffect(() => {
     if (user) {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     } else {
-      router.push("/acessar");
+      router.push("/login");
     }
   }, [router, user]);
 
