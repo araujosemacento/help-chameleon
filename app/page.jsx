@@ -3,7 +3,8 @@
 import { useMobile } from "@/context/MobileContext";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
-//import SideBar from "@/components/SideBar";
+import SideBar from "@/components/SideBar";
+import { Exercicios, Nivel, Desafios, Ranking, Perfil } from "@/components/userPages";
 import React, { useState, useEffect } from "react";
 
 export default function Home() {
@@ -12,10 +13,16 @@ export default function Home() {
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState("exercicios");
+
+  const handleSelectPage = (page) => {
+    setPage(page);
+  };
 
   useEffect(() => {
     if (user) {
-      setLoading(false);
+      console.log(user);
+        setLoading(false);
     } else {
       router.push("/login");
     }
@@ -26,7 +33,14 @@ export default function Home() {
       {loading ? (
         <img className="m-auto" src="gear.svg" alt="loading" />
       ) : (
-        <p className="m-auto">{user.displayName ? user.displayName : "Login"}</p>
+        <div className="flex flex-col-reverse md:flex-row w-full h-full text-text-900">
+          <SideBar onSelectPage={handleSelectPage} />
+          {page === "exercicios" && <Exercicios className="w-3/4" />}
+          {page === "nivel" && <Nivel className="w-3/4" />}
+          {page === "desafios" && <Desafios className="w-3/4" />}
+          {page === "ranking" && <Ranking className="w-3/4" />}
+          {page === "perfil" && <Perfil className="w-3/4" />}
+        </div>
       )}
     </div>
   );

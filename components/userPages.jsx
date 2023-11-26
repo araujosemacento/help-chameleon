@@ -3,84 +3,10 @@ import React from "react";
 import { useAuth } from "@/context/AuthContext";
 import {
   Avatar,
-  Button,
 } from "@material-tailwind/react";
 import {
   LockClosedIcon,
 } from "@heroicons/react/24/solid";
-
-export function Inicio({ onSelect }) {
-  const { user } = useAuth();
-
-  const reroute = (index) => {
-    onSelect(index);
-  };
-
-  React.useEffect(() => {
-    if (user) {
-      reroute("profile");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
-
-  return (
-    <div className="flex flex-row h-full w-full text-text-900">
-      <section className="flex flex-col gap-4 w-1/2 p-2">
-        <div className="flex flex-row gap-4 w-full p-2">
-          <img
-            src="/hameleon.svg"
-            alt="logo"
-            className="w-[3vw] invert dark:invert-0"
-          />
-          <h3 className="place-self-center text-[1.5vw] text-text-900">
-            Programação II
-          </h3>
-        </div>
-      </section>
-      <section className="flex flex-col gap-4 w-1/2 p-2 place-content-center">
-        <main
-          className="flex flex-col gap-4 p-8 w-3/4 self-center bg-background-200 rounded-3xl"
-          style={{ boxShadow: "rgba(0, 0, 0, 0.33) 0px 3px 9px" }}
-        >
-          <h1 className="text-center text-2xl">
-            Bem-vindo(a) à cadeira de Programação II
-          </h1>
-          <div className="flex flex-col gap-4 text-justify">
-            <p>
-              He finally gets there. He runs up the steps into the church. The
-              wedding is on. And he says, &quot;Watermelon? I thought you said
-              Guatemalan. Why would I marry a watermelon?&quot; Is that a bee
-              joke?
-            </p>
-            <p>
-              We try not to sting. It&apos;s usually fatal for us. So you have
-              to watch your temper. Very carefully. You kick a wall, take a
-              walk, write an angry letter and throw it out. Work through it like
-              any emotion.
-            </p>
-          </div>
-          <div className="flex flex-col justify-center">
-            <Button
-              onClick={() => reroute("register")}
-              color="deep-purple"
-              variant="gradient"
-              className="m-2"
-            >
-              Realizar Cadastro
-            </Button>
-            <Button
-              onClick={() => reroute("login")}
-              color="deep-purple"
-              className="m-2 bg-opacity-70"
-            >
-              Fazer Login
-            </Button>
-          </div>
-        </main>
-      </section>
-    </div>
-  );
-}
 
 export function Exercicios() {
   const { user } = useAuth();
@@ -88,10 +14,10 @@ export function Exercicios() {
   return <div className="m-auto text-text-900">Exercícios</div>;
 }
 
-export function TesteDeNivel() {
+export function Nivel() {
   const { user } = useAuth();
 
-  return <div className="m-auto text-text-900">Teste de Nível</div>;
+  return <div className="m-auto text-text-900">Nível</div>;
 }
 
 export function Desafios() {

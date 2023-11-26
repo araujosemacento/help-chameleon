@@ -155,6 +155,7 @@ module.exports = withMT({
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
         inter: ["Inter", "sans-serif"],
         bitter: ["Bitter", "serif"],
         sono: ["Sono", "monospace"],

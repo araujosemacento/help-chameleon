@@ -210,7 +210,7 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-poppins);
   -webkit-font-smoothing: antialiased;
   background-color: var(--background-100);
 }

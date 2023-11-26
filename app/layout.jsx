@@ -1,7 +1,13 @@
-import { Inter, Bitter, Sono } from "next/font/google";
+import { Poppins, Inter, Bitter, Sono } from "next/font/google";
 import Providers from "@/app/providers";
 import "./globals.css";
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 const inter = Inter({ subsets: ["latin"] });
 const bitter = Bitter({ subsets: ["latin"] });
 const sono = Sono({ subsets: ["latin"] });
@@ -34,7 +40,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR">
+    <html className={`${poppins.variable}`} lang="pt-BR">
       <body className={[inter.className, bitter.className, sono.className]}>
         <Providers>{children}</Providers>
       </body>

@@ -37,14 +37,25 @@ export function createUser(UID, name, email, password, profilePic) {
         profilePic: profilePic,
       });
     }
-  })
+  });
 }
 
+export async function getUserData(uid) {
+  const database = getDatabase(app);
+  const userRef = ref(database, `users/`);
 
+  const snapshot = await get(userRef);
+  if (snapshot.exists()) {
+    return snapshot.val();
+  } else {
+    console.log("Sem dados de usuário com esse ID");
+    return null;
+  }
+}
 
 export async function checkUserExists(email) {
   const database = getDatabase(app);
-  const usersRef = ref(database, 'users');
+  const usersRef = ref(database, "users");
 
   const snapshot = await get(usersRef);
   let uid = null;
@@ -57,7 +68,5 @@ export async function checkUserExists(email) {
 
   return uid;
 }
-
-
 
 //const analytics = getAnalytics(app);

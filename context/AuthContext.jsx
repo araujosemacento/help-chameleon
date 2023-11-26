@@ -30,23 +30,19 @@ export function AuthProvider({ children }) {
     setUser(result.user);
   };
 
-  const createSignUpUser = async (email, password) => {
-    const result = await createUserWithEmailAndPassword(auth, displayName, email, password);
+  const createSignUpUser = async (displayName, email, password) => {
+    const result = await createUserWithEmailAndPassword(auth, email, password);
     setUser(result.user);
 
-    const photoURL = result.user.photoURL ? result.user.photoURL : displayName[0].toUpperCase();
+    const photoURL = result.user.photoURL
+      ? result.user.photoURL
+      : displayName[0].toUpperCase();
 
     if (!result.user) {
       return;
     }
 
-    createUser(
-      result.user.uid,
-      displayName,
-      email,
-      password,
-      photoURL
-    );
+    createUser(result.user.uid, displayName, email, password, photoURL);
   };
 
   const signInUserWithEmailAndPassword = async (email, password) => {
@@ -56,7 +52,7 @@ export function AuthProvider({ children }) {
 
   const signOutUser = async () => {
     await signOut(auth);
-    setUser(null);
+    setUser(undefined);
   };
 
   useEffect(() => {

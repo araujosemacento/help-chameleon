@@ -53,7 +53,7 @@ export default function Cadastro() {
                 alt="logo"
                 className="w-10 invert dark:invert-0"
               />
-              <h2 className="text-2xl">Programação II</h2>
+              <h2 className="text-2xl">ProgQuest</h2>
             </div>
             {!isMobile && (
               <button
