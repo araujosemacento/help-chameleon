@@ -26,9 +26,10 @@ export function Exercicios() {
         {Array.from({ length: 10 }, (_, i) => i).map((_, index) => (
           <div key={index}>
             <button
-              className={`flex rounded-[50%] w-[100px] h-[80px] shadow-[0_10px_0_0_var(--text-500)] active:translate-y-[10px] active:shadow-none transition-all bg-background-200 justify-center items-center translate-x-[${parseInt(
-                -100 * Math.sin(index / 1.25)
-              )}%]`}
+              className={`flex rounded-[50%] w-[100px] h-[80px] shadow-[0_10px_0_0_var(--text-500)] active:translate-y-[10px] active:shadow-none transition-all bg-background-200 justify-center items-center`}
+              style={{
+                transform: `translateX(${parseInt(-100 * Math.sin(index / 1.25))}%)`
+              }}
             >
               <svg
                 width="45"

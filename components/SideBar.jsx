@@ -37,7 +37,7 @@ export default function SideBar({ onSelectPage }) {
         <h2 className="text-2xl text-accent-600">ProgQuest</h2>
       </div>
       <hr className="hidden md:flex mb-6 border-accent-600 w-3/4 self-center" />
-      <div className="flex flex-row w-full justify-between h-full md:pb-4 md:flex-col">
+      <div className="flex flex-row w-full justify-between h-full md:flex-col">
         <div className="flex flex-row w-full justify-evenly md:flex-col gap-1">
           <button
             onClick={() => handleSelectSideBar("exercicios")}
@@ -161,7 +161,7 @@ export default function SideBar({ onSelectPage }) {
         </div>
         <button
           onClick={signOutUser}
-          className="hidden md:flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-primary-200 text-fail-500 border-2 border-transparent active:border-fail-500"
+          className="hidden md:flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 md:mb-4 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-primary-200 text-fail-500 border-2 border-transparent active:border-fail-500"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
