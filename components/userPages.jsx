@@ -1,11 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Tooltip, Switch } from "@material-tailwind/react";
 import { LockClosedIcon } from "@heroicons/react/24/solid";
 
 export function Exercicios() {
   const { user } = useAuth();
+
+  const [buttonClicked, setButtonClicked] = useState([]);
+
+  const handleButtonClick = (state, index) => {
+    const newButtonClicked = [...buttonClicked];
+    newButtonClicked[index] = state;
+    setButtonClicked(newButtonClicked);
+  };
+
+  useEffect(() => {
+    handleButtonClick(false, 0);
+  }, []);
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
@@ -26,9 +38,15 @@ export function Exercicios() {
         {Array.from({ length: 10 }, (_, i) => i).map((_, index) => (
           <div key={index}>
             <button
-              className={`flex rounded-[50%] w-[100px] h-[80px] shadow-[0_10px_0_0_var(--text-500)] active:translate-y-[10px] active:shadow-none transition-all bg-background-200 justify-center items-center`}
+              className={`clicked flex rounded-[50%] w-[100px] h-[80px] shadow-[0_10px_0_0_var(--text-500)] active:translate-y-[10px] active:shadow-none transition-all bg-background-200 justify-center items-center`}
+              onMouseDown={() => handleButtonClick(true, index)}
+              onMouseUp={() => handleButtonClick(false, index)}
               style={{
-                transform: `translateX(${parseInt(-100 * Math.sin(index / 1.25))}%)`
+                transform: `translateX(${parseInt(
+                  -100 * Math.sin(index / 1.25)
+                )}%) ${
+                  buttonClicked[index] ? "translateY(10px)" : "translateY(0px)"
+                }`,
               }}
             >
               <svg
