@@ -17,6 +17,7 @@ export function Exercicios() {
 
   useEffect(() => {
     handleButtonClick(false, 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -34,13 +35,21 @@ export function Exercicios() {
         </svg>
         Exercícios
       </div>
-      <section className="flex flex-col w-full h-full justify-start items-center gap-8">
+      <section className="flex flex-col relative w-full h-full justify-start items-center gap-8">
         {Array.from({ length: 10 }, (_, i) => i).map((_, index) => (
           <div key={index}>
             <button
-              className={`clicked flex rounded-[50%] w-[100px] h-[80px] shadow-[0_10px_0_0_var(--text-500)] active:translate-y-[10px] active:shadow-none transition-all bg-background-200 justify-center items-center`}
+              className={`clicked flex rounded-[50%] w-[100px] h-[80px] ${
+                index === 0
+                  ? "shadow-[0_10px_0_0_var(--success-500)] md:active:shadow-none bg-success-400"
+                  : index === 1
+                  ? "shadow-[0_10px_0_0_var(--accent-600)] md:active:shadow-none bg-accent-300"
+                  : "shadow-[0_10px_0_0_var(--text-500)] md:active:shadow-none bg-background-200"
+              } transition-all justify-center items-center`}
               onMouseDown={() => handleButtonClick(true, index)}
               onMouseUp={() => handleButtonClick(false, index)}
+              onTouchStart={() => handleButtonClick(true, index)}
+              onTouchEnd={() => handleButtonClick(false, index)}
               style={{
                 transform: `translateX(${parseInt(
                   -100 * Math.sin(index / 1.25)
@@ -49,67 +58,194 @@ export function Exercicios() {
                 }`,
               }}
             >
-              <svg
-                width="45"
-                height="50"
-                viewBox="0 0 45 50"
-                className="dark:invert"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g filter="url(#filter0_i_666_667)">
-                  <path
-                    d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
-                    fill="#8B8B8B"
-                  />
-                </g>
-                <defs>
-                  <filter
-                    id="filter0_i_666_667"
-                    x="0"
-                    y="0"
-                    width="45"
-                    height="54"
-                    filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
-                  >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                    <feBlend
-                      mode="normal"
-                      in="SourceGraphic"
-                      in2="BackgroundImageFix"
-                      result="shape"
+              {index === 0 ? (
+                <svg
+                  width="75"
+                  height="45"
+                  className="w-[50px] fill-success-500"
+                  viewBox="0 0 75 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_i_733_114)">
+                    <path d="M27.2618 45L0 24.54L13.71 14.6937L27.4105 24.9765L61.4386 0L75 9.95541L27.2618 45Z" />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_733_114"
+                      x="0"
+                      y="0"
+                      width="75"
+                      height="49"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0.266667 0 0 0 0 0.533333 0 0 0 0 0.2 0 0 0 1 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_733_114"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              ) : index === 1 ? (
+                <svg
+                  width="59"
+                  height="47"
+                  className="w-[50px] fill-accent-600"
+                  viewBox="0 0 59 47"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_i_733_669)">
+                    <path d="M27.1838 1.70294C28.0281 -0.376073 30.9719 -0.376068 31.8162 1.70294L37.286 15.1702C37.6688 16.1129 38.5848 16.7295 39.6022 16.7295H55.8885C58.4424 16.7295 59.3528 20.1075 57.1448 21.3909L44.9995 28.4501C43.9229 29.0759 43.471 30.3986 43.9396 31.5523L48.7887 43.4916C49.6856 45.7 47.2769 47.7915 45.2161 46.5937L30.7563 38.1892C29.9796 37.7377 29.0204 37.7377 28.2437 38.1892L13.7839 46.5937C11.7231 47.7915 9.31437 45.7 10.2113 43.4916L15.0604 31.5523C15.529 30.3986 15.0771 29.0759 14.0005 28.4501L1.85525 21.3909C-0.352778 20.1075 0.55763 16.7295 3.11154 16.7295H19.3978C20.4152 16.7295 21.3312 16.1129 21.714 15.1702L27.1838 1.70294Z" />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_733_669"
+                      x="0.607422"
+                      y="0.143555"
+                      width="57.7852"
+                      height="50.7998"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_733_669"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              ) : (
+                <svg
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  className="dark:invert w-[40px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_i_666_667)">
+                    <path
+                      d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
+                      fill="#8B8B8B"
                     />
-                    <feColorMatrix
-                      in="SourceAlpha"
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                      result="hardAlpha"
-                    />
-                    <feOffset dy="8" />
-                    <feGaussianBlur stdDeviation="2" />
-                    <feComposite
-                      in2="hardAlpha"
-                      operator="arithmetic"
-                      k2="-1"
-                      k3="1"
-                    />
-                    <feColorMatrix
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                    />
-                    <feBlend
-                      mode="normal"
-                      in2="shape"
-                      result="effect1_innerShadow_666_667"
-                    />
-                  </filter>
-                </defs>
-              </svg>
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_666_667"
+                      x="0"
+                      y="0"
+                      width="45"
+                      height="54"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_666_667"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              )}
             </button>
           </div>
         ))}
-        <hr className="border-transparent w-full m-64" />
+        <img
+          src="/mestre_dos_magos.png"
+          alt="Mestre dos Camaleagos"
+          className="absolute h-56 -translate-x-1/2 -translate-y-1/2 left-[75%] top-[150%] md:top-[175%]"
+        />
+        <img
+          src="/goku.png"
+          alt="Kamehamehameleon"
+          className="absolute h-56 -translate-x-1/2 -translate-y-1/2 left-[30%] top-[90%] md:top-[100%]"
+        />
+        <img
+          src="/ashmeleon.png"
+          alt="Ash Ketchameleon"
+          className="absolute h-56 -translate-x-1/2 -translate-y-1/2 left-[70%] top-[30%] md:top-[45%]"
+        />
+        <hr className="border-transparent w-full m-4" />
       </section>
     </div>
   );
@@ -150,7 +286,7 @@ export function Nivel() {
         </div>
         <button
           onClick={() => router.push("/nivelamento")}
-          className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white self-end"
+          className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white self-center"
         >
           Refazer Teste de Nível
         </button>
@@ -200,9 +336,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -279,9 +415,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -358,9 +494,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -437,9 +573,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -516,9 +652,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -595,9 +731,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -674,9 +810,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -753,9 +889,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
@@ -832,9 +968,9 @@ export function Desafios() {
                       width="202.5"
                       height="202.5"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"
