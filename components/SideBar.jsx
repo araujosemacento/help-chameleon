@@ -5,6 +5,7 @@ import { useMobile } from "@/context/MobileContext";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import React, { useState } from "react";
+import "@/components/styles/SideBar.css";
 
 export default function SideBar({ onSelectPage }) {
   const { isMobile, windowSize } = useMobile();
@@ -17,7 +18,7 @@ export default function SideBar({ onSelectPage }) {
   };
 
   return (
-    <aside className="flex flex-row md:flex-col w-full h-20 justify-evenly md:justify-normal md:w-1/2 lg:w-1/3 xl:w-1/4 lg:w-88 md:h-full text-text-900 bg-background-200 rounded-t-lg md:rounded-r-xl md:rounded-l-none">
+    <aside className="flex flex-row md:flex-col w-full h-20 justify-evenly md:justify-normal md:w-1/2 lg:w-1/3 xl:w-1/4 lg:w-88 md:h-full text-text-900 bg-accent-100 rounded-t-xl md:rounded-r-3xl md:rounded-l-none">
       <div className="hidden md:flex flex-row w-full p-8 items-center gap-2">
         <svg
           className="fill-accent-600 w-16"
@@ -38,11 +39,22 @@ export default function SideBar({ onSelectPage }) {
       <hr className="hidden md:flex mb-6 border-accent-600 w-3/4 self-center" />
       <div className="flex flex-row w-full justify-between h-full md:pb-4 md:flex-col">
         <div className="flex flex-row w-full justify-evenly md:flex-col gap-1">
-          <button onClick={() => handleSelectSideBar("exercicios")} className="flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-background-300">
+          <button
+            onClick={() => handleSelectSideBar("exercicios")}
+            className={`flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-accent-200 border-2 ${
+              selectedPage === "exercicios"
+                ? "bg-accent-200 border-accent-500 text-accent-500 font-bold"
+                : "border-transparent text-text-900"
+            }`}
+          >
             <svg
               width="34"
               height="33"
-              className="fill-text-900 h-6"
+              className={`${
+                selectedPage === "exercicios"
+                  ? "fill-accent-500 h-6"
+                  : "fill-text-900"
+              } h-6`}
               viewBox="0 0 34 33"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -51,11 +63,22 @@ export default function SideBar({ onSelectPage }) {
             </svg>
             Exercícios
           </button>
-          <button onClick={() => handleSelectSideBar("nivel")} className="flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-background-300">
+          <button
+            onClick={() => handleSelectSideBar("nivel")}
+            className={`flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-accent-200 border-2 ${
+              selectedPage === "nivel"
+                ? "bg-accent-200 border-accent-500 text-accent-500 font-bold"
+                : "border-transparent text-text-900"
+            }`}
+          >
             <svg
               width="30"
               height="34"
-              className="fill-text-900 h-6"
+              className={`${
+                selectedPage === "nivel"
+                  ? "fill-accent-500 h-6"
+                  : "fill-text-900"
+              } h-6`}
               viewBox="0 0 30 34"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -64,11 +87,22 @@ export default function SideBar({ onSelectPage }) {
             </svg>
             Nível
           </button>
-          <button onClick={() => handleSelectSideBar("desafios")} className="flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-background-300">
+          <button
+            onClick={() => handleSelectSideBar("desafios")}
+            className={`flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-accent-200 border-2 ${
+              selectedPage === "desafios"
+                ? "bg-accent-200 border-accent-500 text-accent-500 font-bold"
+                : "border-transparent text-text-900"
+            }`}
+          >
             <svg
               width="34"
               height="34"
-              className="fill-text-900 h-6"
+              className={`${
+                selectedPage === "desafios"
+                  ? "fill-accent-500 h-6"
+                  : "fill-text-900"
+              } h-6`}
               viewBox="0 0 34 34"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -77,11 +111,22 @@ export default function SideBar({ onSelectPage }) {
             </svg>
             Desafios
           </button>
-          <button onClick={() => handleSelectSideBar("ranking")} className="flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-background-300">
+          <button
+            onClick={() => handleSelectSideBar("ranking")}
+            className={`flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-accent-200 border-2 ${
+              selectedPage === "ranking"
+                ? "bg-accent-200 border-accent-500 text-accent-500 font-bold"
+                : "border-transparent text-text-900"
+            }`}
+          >
             <svg
               width="30"
               height="30"
-              className="fill-text-900 h-6"
+              className={`${
+                selectedPage === "ranking"
+                  ? "fill-accent-500 h-6"
+                  : "fill-text-900"
+              } h-6`}
               viewBox="0 0 30 30"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -89,11 +134,22 @@ export default function SideBar({ onSelectPage }) {
             </svg>
             Ranking
           </button>
-          <button onClick={() => handleSelectSideBar("perfil")} className="flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-background-300">
+          <button
+            onClick={() => handleSelectSideBar("perfil")}
+            className={`flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-accent-200 border-2 ${
+              selectedPage === "perfil"
+                ? "bg-accent-200 border-accent-500 text-accent-500 font-bold"
+                : "border-transparent text-text-900"
+            }`}
+          >
             <svg
               width="34"
               height="34"
-              className="fill-text-900 h-6"
+              className={`${
+                selectedPage === "perfil"
+                  ? "fill-accent-500 h-6"
+                  : "fill-text-900"
+              } h-6`}
               viewBox="0 0 34 34"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +161,7 @@ export default function SideBar({ onSelectPage }) {
         </div>
         <button
           onClick={signOutUser}
-          className="hidden md:flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-background-300 text-fail-500"
+          className="hidden md:flex flex-col md:flex-row text-xs sm:text-sm gap-1 md:gap-2 items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-4 md:text-lg md:px-10 md:mx-6 hover:bg-primary-200 text-fail-500 border-2 border-transparent active:border-fail-500"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
