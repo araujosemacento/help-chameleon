@@ -1,39 +1,47 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import {
-  Inicio,
-  Entrar,
-  Cadastrar,
-  Exercicios,
-  TesteDeNivel,
-  Desafios,
-  Ranking,
-  Perfil,
-} from "@/components/Pages";
-import Sidebar from "@/components/SideBar";
-import React from "react";
-export default function Home() {
-  const [page, setPage] = React.useState("home");
+import { useMobile } from "@/context/MobileContext";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+import SideBar from "@/components/SideBar";
+import { Exercicios, Nivel, Desafios, Ranking, Perfil } from "@/components/userPages";
+import React, { useState, useEffect } from "react";
 
-  const handleSelect = (index) => {
-    setPage(index);
+export default function Home() {
+  const { isMobile, windowSize } = useMobile();
+  const { user } = useAuth();
+  const router = useRouter();
+
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState("exercicios");
+
+  const handleSelectPage = (page) => {
+    setPage(page);
   };
 
+  useEffect(() => {
+    if (user) {
+      console.log(user);
+        setLoading(false);
+    } else {
+      router.push("/login");
+    }
+  }, [router, user]);
+
   return (
-    <div className="flex flex-row h-full">
-      {page !== "register" && page !== "login" && page !== "home" && (
-        <Sidebar onSelect={handleSelect} />
+    <div className="flex w-full h-full text-text-900">
+      {loading ? (
+        <img className="m-auto" src="gear.svg" alt="loading" />
+      ) : (
+        <div className="flex flex-col-reverse md:flex-row w-full h-full text-text-900">
+          <SideBar onSelectPage={handleSelectPage} />
+          {page === "exercicios" && <Exercicios className="w-3/4" />}
+          {page === "nivel" && <Nivel className="w-3/4" />}
+          {page === "desafios" && <Desafios className="w-3/4" />}
+          {page === "ranking" && <Ranking className="w-3/4" />}
+          {page === "perfil" && <Perfil className="w-3/4" />}
+        </div>
       )}
-      <main className="flex flex-row w-full h-full">
-        {page === "home" && <Inicio onSelect={handleSelect} />}
-        {page === "login" && <Entrar onSelect={handleSelect} />}
-        {page === "register" && <Cadastrar onSelect={handleSelect} />}
-        {page === "exercises" && <Exercicios />}
-        {page === "test" && <TesteDeNivel />}
-        {page === "challenges" && <Desafios />}
-        {page === "ranking" && <Ranking />}
-        {page === "profile" && <Perfil />}
-      </main>
     </div>
   );
 }

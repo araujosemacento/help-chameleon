@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.outer-selected {
+  @apply bg-primary-200 border border-accent-500
+}
+
+.inner-selected {
+  @apply text-accent-500 fill-accent-500
+}
