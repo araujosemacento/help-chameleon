@@ -18,7 +18,7 @@ export default function SideBar({ onSelectPage }) {
   };
 
   return (
-    <aside className="flex flex-col md:flex-col w-full h-20 justify-evenly md:justify-normal md:w-1/2 lg:w-1/3 xl:w-1/4 lg:w-88 md:h-full text-text-900 bg-accent-100 rounded-t-xl md:rounded-r-3xl md:rounded-l-none">
+    <aside className="flex flex-col md:flex-col w-full h-20 justify-evenly md:justify-normal md:w-1/2 lg:w-1/3 xl:w-1/4 lg:w-88 md:h-screen overflow-hidden text-text-900 bg-accent-100 rounded-t-xl md:rounded-r-3xl md:rounded-l-none">
       <div className="hidden md:flex flex-row w-full p-8 items-center gap-2">
         <svg
           className="fill-accent-600 w-16"
