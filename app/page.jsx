@@ -21,7 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     if (user) {
-      console.log(user);
+      //console.log(user);
         setLoading(false);
     } else {
       router.push("/login");

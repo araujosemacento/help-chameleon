@@ -11,7 +11,6 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "@/app/firebase";
-import { createUser } from "@/app/firebase";
 
 const AuthContext = createContext();
 
@@ -32,17 +31,12 @@ export function AuthProvider({ children }) {
 
   const createSignUpUser = async (displayName, email, password) => {
     const result = await createUserWithEmailAndPassword(auth, email, password);
+    result.user.displayName = displayName;
     setUser(result.user);
 
-    const photoURL = result.user.photoURL
-      ? result.user.photoURL
-      : displayName[0].toUpperCase();
-
     if (!result.user) {
-      return;
+      return console.log("Erro ao cadastrar usuário");
     }
-
-    createUser(result.user.uid, displayName, email, password, photoURL);
   };
 
   const signInUserWithEmailAndPassword = async (email, password) => {
@@ -52,7 +46,7 @@ export function AuthProvider({ children }) {
 
   const signOutUser = async () => {
     await signOut(auth);
-    setUser(undefined);
+    setUser(null);
   };
 
   useEffect(() => {

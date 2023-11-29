@@ -9,9 +9,9 @@ export default function Providers({ children, ...props }) {
   return (
     <MobileProvider>
       <AuthProvider>
-        <NextThemesProvider {...props}>
-          <MaterialThemeProvider>{children}</MaterialThemeProvider>
-        </NextThemesProvider>
+          <NextThemesProvider {...props}>
+            <MaterialThemeProvider>{children}</MaterialThemeProvider>
+          </NextThemesProvider>
       </AuthProvider>
     </MobileProvider>
   );
