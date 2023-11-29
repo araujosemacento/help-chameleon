@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import { getUserDataAsObject } from "@/app/firebase";
 
