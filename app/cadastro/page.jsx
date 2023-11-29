@@ -58,14 +58,14 @@ export default function Cadastro() {
             {!isMobile && (
               <button
                 onClick={() => router.push("/login")}
-                className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none text-white"
+                className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_color(var(--accent-700))] hover:shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none text-white"
               >
                 Fazer login
               </button>
             )}
           </nav>
           <main className="flex w-full h-full justify-center items-center">
-            <section className="flex flex-col w-[90%] md:w-[60%] lg:w-[35%] place-content-center border border-background-500 rounded-3xl shadow-[0_0_10px_1px_var(--background-200)]">
+            <section className="flex flex-col w-[90%] md:w-[60%] lg:w-[35%] place-content-center border border-background-500 rounded-3xl shadow-[0_0_10px_1px_color(var(--background-200))]">
               <form
                 onSubmit={handleSubmit}
                 className="flex flex-col w-full h-full gap-4 p-6"
@@ -104,7 +104,7 @@ export default function Cadastro() {
                 <button
                   type="submit"
                   disabled={submitCooldown}
-                  className="w-full p-3 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white"
+                  className="w-full p-3 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_color(var(--accent-700))] hover:shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white"
                 >
                   Realizar cadastro
                 </button>
