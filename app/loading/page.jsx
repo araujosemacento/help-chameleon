@@ -1,5 +1,8 @@
-import Loading from "@/public/loading/loading";
+import React from "react";
+import { getUserDataAsObject } from "@/app/firebase";
 
-export default function TesteLoad() { 
-  return <Loading />;
+export default function Load() {
+  React.useEffect(() => {});
+
+  return <div />;
 }

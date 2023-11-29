@@ -42,7 +42,9 @@ export default function RootLayout({ children }) {
   return (
     <html className={`${poppins.variable}`} lang="pt-BR">
       <body className={[inter.className, bitter.className, sono.className]}>
-        <Providers>{children}</Providers>
+        <Providers attribute="class" defaultTheme="system" enableSystem={true} enableColorScheme={true}>
+          {children}
+        </Providers>
       </body>
     </html>
   );
