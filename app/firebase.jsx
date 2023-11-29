@@ -21,10 +21,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
-export function createUser(UID, email, account, name, password, profilePic, level) {
+export function createUser(UID, name, email, password, profilePic) {
   const database = getDatabase(app);
-  const userRef = ref(database, `users/`);
+  const userRef = ref(database, `users/${UID}`);
 
   get(userRef).then((snapshot) => {
     if (snapshot.exists()) {
@@ -32,52 +31,22 @@ export function createUser(UID, email, account, name, password, profilePic, leve
     } else {
       set(userRef, {
         UID: UID,
-        "e-mail": email,
-        contas: [account],
-        nome: name,
-        nível: level,
-        biografia: "",
-        "teste de nível": false,
-        senha: password,
-        "foto de perfil": profilePic,
-        experiência: 0,
-        ranking: false,
-        exercícios: {
-          desbloqueados: [
-            "Exercício 1",
-            "Exercício 2",
-            "Exercício 3",
-            "Exercício 4"
-          ],
-          completados: ["Exercício 1"]
-        },
-        desafios: {
-          desbloqueados: ["Desafio 1", "Desafio 2"],
-          completados: ["Desafio 1"]
-        },
-        conquistas: {
-          desbloqueadas: [
-            "Maestria Metódica",
-          ]
-        }
+        name: name,
+        email: email,
+        password: password,
+        profilePic: profilePic,
       });
     }
   });
 }
 
-export async function getUserDataAsObject(uid) {
+export async function getUserData(uid) {
   const database = getDatabase(app);
   const userRef = ref(database, `users/`);
 
   const snapshot = await get(userRef);
   if (snapshot.exists()) {
-    const data = snapshot.val();
-    const formattedData = {
-      uid: uid,
-      name: data.name,
-      email: data.email,
-    };
-    return formattedData;
+    return snapshot.val();
   } else {
     console.log("Sem dados de usuário com esse ID");
     return null;

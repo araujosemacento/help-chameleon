@@ -1,17 +1,14 @@
 "use client";
 
-import { ThemeProvider as MaterialThemeProvider } from "@material-tailwind/react";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ThemeProvider } from "@material-tailwind/react";
 import { AuthProvider } from "@/context/AuthContext";
 import { MobileProvider } from "@/context/MobileContext";
 
-export default function Providers({ children, ...props }) {
+export default function Providers({ children }) {
   return (
     <MobileProvider>
       <AuthProvider>
-        <NextThemesProvider {...props}>
-          <MaterialThemeProvider>{children}</MaterialThemeProvider>
-        </NextThemesProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </AuthProvider>
     </MobileProvider>
   );

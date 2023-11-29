@@ -75,14 +75,14 @@ export default function Login() {
             {!isMobile && (
               <button
                 onClick={() => router.push("/cadastro")}
-                className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_color(var(--accent-700))] hover:shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none text-white"
+                className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none text-white"
               >
                 Cadastre-se
               </button>
             )}
           </nav>
           <main className="flex w-full h-full justify-center items-center">
-            <section className="flex flex-col w-[90%] md:w-[60%] lg:w-[35%] place-content-center border border-background-500 rounded-3xl shadow-[0_0_10px_1px_color(var(--background-200))]">
+            <section className="flex flex-col w-[90%] md:w-[60%] lg:w-[35%] place-content-center border border-background-500 rounded-3xl shadow-[0_0_10px_1px_var(--background-200)]">
               <form
                 className="flex flex-col w-full h-full gap-4 p-6"
                 onSubmit={handleSubmit}
@@ -109,7 +109,7 @@ export default function Login() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full p-3 text-center font-bold text-xl bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_color(var(--accent-700))] hover:shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white"
+                  className="w-full p-3 text-center font-bold text-xl bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white"
                 >
                   Entrar
                 </button>
@@ -121,7 +121,7 @@ export default function Login() {
                 <div className="flex flex-col md:flex-row gap-4 w-full">
                   <button
                     onClick={handleGoogleSignIn}
-                    className="flex w-full p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_4px_0_0_color(var(--accent-700))] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2"
+                    className="flex w-full p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_4px_0_0_var(--accent-700)] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2"
                   >
                     <img
                       src="https://api.iconify.design/akar-icons:google-fill.svg?color=%23ffffff"
@@ -132,7 +132,7 @@ export default function Login() {
                   </button>
                   <button
                     onClick={handleGithubSignIn}
-                    className="flex w-full p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_color(var(--accent-700))] hover:shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none text-white justify-center items-center gap-2"
+                    className="flex w-full p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none text-white justify-center items-center gap-2"
                   >
                     <img
                       src="https://api.iconify.design/mdi:github.svg?color=%23ffffff"
