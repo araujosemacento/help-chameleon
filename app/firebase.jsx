@@ -21,9 +21,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export function createUser(UID, name, email, password, profilePic) {
+
+export function createUser(
+  UID,
+  email,
+  account,
+  name,
+  password,
+  profilePic,
+  level
+) {
   const database = getDatabase(app);
-  const userRef = ref(database, `users/${UID}`);
+  const userRef = ref(database, `users/`);
 
   get(userRef).then((snapshot) => {
     if (snapshot.exists()) {
@@ -31,22 +40,50 @@ export function createUser(UID, name, email, password, profilePic) {
     } else {
       set(userRef, {
         UID: UID,
-        name: name,
-        email: email,
-        password: password,
-        profilePic: profilePic,
+        "e-mail": email,
+        contas: [account],
+        nome: name,
+        nível: level,
+        biografia: "",
+        "teste de nível": false,
+        senha: password,
+        "foto de perfil": profilePic,
+        experiência: 0,
+        ranking: false,
+        exercícios: {
+          desbloqueados: [
+            "Exercício 1",
+            "Exercício 2",
+            "Exercício 3",
+            "Exercício 4",
+          ],
+          completados: ["Exercício 1"],
+        },
+        desafios: {
+          desbloqueados: ["Desafio 1", "Desafio 2"],
+          completados: ["Desafio 1"],
+        },
+        conquistas: {
+          desbloqueadas: ["Maestria Metódica"],
+        },
       });
     }
   });
 }
 
-export async function getUserData(uid) {
+export async function getUserDataAsObject(uid) {
   const database = getDatabase(app);
   const userRef = ref(database, `users/`);
 
   const snapshot = await get(userRef);
   if (snapshot.exists()) {
-    return snapshot.val();
+    const data = snapshot.val();
+    const formattedData = {
+      uid: uid,
+      name: data.name,
+      email: data.email,
+    };
+    return formattedData;
   } else {
     console.log("Sem dados de usuário com esse ID");
     return null;

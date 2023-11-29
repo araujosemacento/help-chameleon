@@ -43,8 +43,8 @@ export function Exercicios() {
                 index === 0
                   ? "shadow-[0_10px_0_0_var(--success-500)] md:active:shadow-none bg-success-400"
                   : index === 1
-                  ? "shadow-[0_10px_0_0_var(--accent-600)] md:active:shadow-none bg-accent-300"
-                  : "shadow-[0_10px_0_0_var(--text-500)] md:active:shadow-none bg-background-200"
+                  ? "shadow-[0_10px_0_0_color(var(--accent-600))] md:active:shadow-none bg-accent-300"
+                  : "shadow-[0_10px_0_0_color(var(--text-500))] md:active:shadow-none bg-background-200"
               } transition-all justify-center items-center`}
               onMouseDown={() => handleButtonClick(true, index)}
               onMouseUp={() => handleButtonClick(false, index)}
@@ -52,7 +52,7 @@ export function Exercicios() {
               onTouchEnd={() => handleButtonClick(false, index)}
               style={{
                 transform: `translateX(${parseInt(
-                  -100 * Math.sin(index / 1.25)
+                  -150 * Math.sin(index / 1.25) * (index % 2 === 0 ? 1 : 0.75)
                 )}%) ${
                   buttonClicked[index] ? "translateY(10px)" : "translateY(0px)"
                 }`,
@@ -286,7 +286,7 @@ export function Nivel() {
         </div>
         <button
           onClick={() => router.push("/nivelamento")}
-          className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_var(--accent-700)] hover:shadow-[0_5px_0_0_var(--accent-500)] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white self-center"
+          className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_color(var(--accent-700))] hover:shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white self-center"
         >
           Refazer Teste de Nível
         </button>
@@ -375,7 +375,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_var(--accent-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_color(var(--accent-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"
@@ -612,7 +612,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_var(--accent-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_color(var(--accent-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"
@@ -770,7 +770,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_var(--accent-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_color(var(--accent-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"
@@ -849,7 +849,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_var(--text-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_color(var(--text-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"
@@ -928,7 +928,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_var(--text-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_color(var(--text-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"
@@ -1007,7 +1007,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_var(--text-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_color(var(--text-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"
