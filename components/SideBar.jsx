@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { useEffect } from "react";
 import { useMobile } from "@/context/MobileContext";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -10,8 +11,11 @@ import "@/components/styles/SideBar.css";
 export default function SideBar({ onSelectPage }) {
   const { isMobile, windowSize } = useMobile();
   const { user, signOutUser } = useAuth();
-  const [selectedPage, setSelectedPage] = useState("exercicios");
+  const [selectedPage, setSelectedPage] = useState([]);
 
+  useEffect(() => {
+      setSelectedPage(localStorage.getItem("página principal"));
+  }, [selectedPage]);
   const handleSelectSideBar = (page) => {
     setSelectedPage(page);
     onSelectPage(page);

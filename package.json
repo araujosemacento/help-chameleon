@@ -15,6 +15,7 @@
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.4",
     "@mui/material": "^5.14.16",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@typescript-eslint/typescript-estree": "^6.10.0",
     "babel": "^6.23.0",
     "firebase": "^10.5.2",

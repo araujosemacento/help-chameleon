@@ -41,7 +41,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html className={`${poppins.variable}`} lang="pt-BR">
-      <body className={[inter.className, bitter.className, sono.className]}>
+      <body className={[poppins.className, inter.className, bitter.className, sono.className]}>
         <Providers attribute="class" defaultTheme="system" enableSystem={true} enableColorScheme={true}>
           {children}
         </Providers>

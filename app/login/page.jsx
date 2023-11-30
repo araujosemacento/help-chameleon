@@ -115,7 +115,7 @@ export default function Login() {
                 </button>
                 <div className="flex flex-row w-full gap-4 items-center my-2 p-2">
                   <hr className="w-full border-text-600" />
-                  <p className="text-sm text-text-600">OU</p>
+                  <p className="text-sm text-text-600">OU CONTINUE COM</p>
                   <hr className="w-full border-text-600" />
                 </div>
                 <div className="flex flex-col md:flex-row gap-4 w-full">

@@ -9,6 +9,7 @@ import {
   GithubAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "@/app/firebase";
 
@@ -31,10 +32,13 @@ export function AuthProvider({ children }) {
 
   const createSignUpUser = async (displayName, email, password) => {
     const result = await createUserWithEmailAndPassword(auth, email, password);
-    result.user.displayName = displayName;
-    setUser(result.user);
 
-    if (!result.user) {
+    if (result.user) {
+      await updateProfile(result.user, {
+        displayName: displayName,
+      });
+      setUser(result.user);
+    } else {
       return console.log("Erro ao cadastrar usuário");
     }
   };
@@ -62,7 +66,14 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, signInWithGoogle, signInWithGithub, signOutUser, createSignUpUser, signInUserWithEmailAndPassword }}
+      value={{
+        user,
+        signInWithGoogle,
+        signInWithGithub,
+        signOutUser,
+        createSignUpUser,
+        signInUserWithEmailAndPassword,
+      }}
     >
       {children}
     </AuthContext.Provider>
