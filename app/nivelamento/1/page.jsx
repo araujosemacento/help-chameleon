@@ -2,26 +2,28 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import { NivelDialog, NivelTrigger, NivelAnswer } from "@/components/RespostaNivel";
 
 export default function Nivelamento() {
-  const router = useRouter();
   const [selectedAnswer, setSelectedAnswer] = React.useState(null);
   const [resposta, setResposta] = React.useState(null);
 
   const handleAnswerSelected = (answer) => {
     setSelectedAnswer(answer);
-  };
-
-  const verificarResposta1 = () => {
-    if (selectedAnswer === 1) {
-      localStorage.setItem("testeDeNivelPergunta1", "acerto");
+    if (answer === 1) {
       setResposta(true);
     } else {
-      localStorage.setItem("testeDeNivelPergunta1", "erro");
-      setResposta(true);
+      setResposta(false);
     }
   };
+
+  const handleResposta = () => {
+    if (selectedAnswer === 1) {
+      localStorage.setItem("testeDeNivelResposta1", "acerto");
+    } else {
+      localStorage.setItem("testeDeNivelResposta1", "erro");
+    }
+  }
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
@@ -49,12 +51,19 @@ export default function Nivelamento() {
             src="/mestre_dos_magos.png"
             alt="Mestre dos Camaleagos"
           />
-          <button
-            onClick={verificarResposta1}
-            className="flex p-2 px-4 h-fit text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_4px_0_0_color(var(--accent-700))] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10"
-          >
-            <p className="text-lg">Verificar</p>
-          </button>
+          <NivelDialog>
+            <NivelTrigger
+              onClick={handleResposta}
+              className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all ${
+                selectedAnswer !== null
+                  ? "pointer-events-auto bg-accent-500 shadow-[0_4px_0_0_color(var(--accent-700))] hover:bg-accent-400"
+                  : "pointer-events-none bg-accent-200 shadow-[0_4px_0_0_color(var(--accent-300))] hover:bg-accent-400"
+              }`}
+            >
+              <p className="text-lg">Verificar</p>
+            </NivelTrigger>
+            <NivelAnswer resposta={resposta} caminho={"/nivelamento/2"} />
+          </NivelDialog>
         </section>
         <section className="flex flex-col w-full h-3/4 md:w-3/4 md:h-full p-10 pt-2 justify-evenly">
           <p>

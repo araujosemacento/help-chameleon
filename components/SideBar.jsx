@@ -14,7 +14,7 @@ export default function SideBar({ onSelectPage }) {
   const [selectedPage, setSelectedPage] = useState([]);
 
   useEffect(() => {
-      setSelectedPage(localStorage.getItem("página principal"));
+      setSelectedPage(localStorage.getItem("paginaPrincipal"));
   }, [selectedPage]);
   const handleSelectSideBar = (page) => {
     setSelectedPage(page);
@@ -175,7 +175,7 @@ export default function SideBar({ onSelectPage }) {
           >
             <path
               fill="none"
-              stroke="var(--fail-500)"
+              stroke="color(var(--fail-500))"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="32"

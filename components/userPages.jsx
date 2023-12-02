@@ -42,7 +42,7 @@ export function Exercicios() {
             <button
               className={`clicked flex rounded-[50%] w-[100px] h-[80px] ${
                 index === 0
-                  ? "shadow-[0_10px_0_0_var(--success-500)] md:active:shadow-none bg-success-400"
+                  ? "shadow-[0_10px_0_0_color(var(--success-500))] md:active:shadow-none bg-success-400"
                   : index === 1
                   ? "shadow-[0_10px_0_0_color(var(--accent-600))] md:active:shadow-none bg-accent-300"
                   : "shadow-[0_10px_0_0_color(var(--text-500))] md:active:shadow-none bg-background-200"
@@ -460,7 +460,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_var(--success-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_color(var(--success-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"
@@ -539,7 +539,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_var(--success-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_color(var(--success-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"
@@ -697,7 +697,7 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_var(--success-700)]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_color(var(--success-700))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
                 <svg
                   width="33"

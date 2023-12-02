@@ -1,21 +1,37 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import React from "react";
+import {
+  NivelDialog,
+  NivelTrigger,
+  NivelAnswer,
+} from "@/components/RespostaNivel";
 
 export default function Nivelamento() {
-  const router = useRouter();
+  const [selectedAnswer, setSelectedAnswer] = React.useState(null);
+  const [resposta, setResposta] = React.useState(null);
 
-  const verificarResposta1 = () => {
-    const resposta1 = localStorage.getItem("testeDeNivelPergunta1");
-    if(resposta1 === "acerto") {
+  const handleAnswerSelected = (answer) => {
+    setSelectedAnswer(answer);
+    if (answer === 1) {
+      setResposta(true);
+    } else {
+      setResposta(false);
     }
-  }
+  };
+
+  const handleResposta = () => {
+    if (selectedAnswer === 1) {
+      localStorage.setItem("testeDeNivelResposta2", "acerto");
+    } else {
+      localStorage.setItem("testeDeNivelResposta2", "erro");
+    }
+  };
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
-      <div className="flex flex-row w-full p-10 items-center gap-2">
+      <div className="flex flex-row w-full p-10 pb-4 items-center gap-2">
         <svg
           className="fill-accent-600 w-10"
           xmlns="http://www.w3.org/2000/svg"
@@ -30,22 +46,60 @@ export default function Nivelamento() {
             d="M706.89,361.66a25.4,25.4,0,1,1,.76-50.8c13.51.23,25.35,12.53,24.87,25.85C732,350.75,720.62,361.85,706.89,361.66Z"
           />
         </svg>
-        <h2 className="text-xl text-accent-600">Pergunta 1</h2>
+        <h2 className="text-xl text-accent-600">Pergunta 2</h2>
       </div>
       <main className="flex flex-col md:flex-row-reverse w-full h-full p-4">
-        <section className="flex w-full h-1/4 md:w-1/4 md:h-full place-content-center p-4 md: items-center">
+        <section className="flex flex-col w-full h-1/4 md:w-1/4 md:h-full place-content-center p-4 md: items-center md:mr-24">
           <img
-            className="h-full md:h-fit md:w-full"
+            className="h-full md:h-fit md:w-full mb-24"
             src="/mestre_dos_magos.png"
             alt="Mestre dos Camaleagos"
           />
+          <NivelDialog>
+            <NivelTrigger
+              onClick={handleResposta}
+              className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all ${
+                selectedAnswer !== null
+                  ? "pointer-events-auto bg-accent-500 shadow-[0_4px_0_0_color(var(--accent-700))] hover:bg-accent-400"
+                  : "pointer-events-none bg-accent-200 shadow-[0_4px_0_0_color(var(--accent-300))] hover:bg-accent-400"
+              }`}
+            >
+              <p className="text-lg">Verificar</p>
+            </NivelTrigger>
+            <NivelAnswer resposta={resposta} caminho={"/"} />
+          </NivelDialog>
         </section>
-        <section className="flex w-full h-3/4 md:w-3/4 md:h-full place-content-center p-4"></section>
-        <button
-          className="flex p-2 px-4 text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_4px_0_0_color(var(--accent-700))] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none  text-white justify-center items-center"
-        >
-          <p className="text-lg">Google</p>
-        </button>
+        <section className="flex flex-col w-full h-3/4 md:w-3/4 md:h-full p-10 pt-2 justify-evenly">
+          <p>
+            Na Programação Orientada a Objetos (POO), como as funções são
+            comumente chamadas quando estão associadas a objetos?
+          </p>
+          <div className="flex flex-col w-full">
+            {Array.from({ length: 5 }).map((button, index) => (
+              <button
+                key={index}
+                onClick={() => handleAnswerSelected(index)}
+                className={`flex flex-col h-fit w-fit md:flex-row items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-2 md:text-lg md:px-6 md:mx-6 hover:bg-accent-200 border-2 ${
+                  selectedAnswer === index
+                    ? "bg-accent-200 border-accent-500 text-accent-500 font-bold"
+                    : "border-transparent text-text-900"
+                }`}
+              >
+                {`${
+                  index === 0
+                    ? "a) Procedimentos"
+                    : index === 1
+                    ? "b) Métodos"
+                    : index === 2
+                    ? "c) Rotinas"
+                    : index === 3
+                    ? "d) Sub-Rotinas"
+                    : "e) Não sei"
+                }`}
+              </button>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );

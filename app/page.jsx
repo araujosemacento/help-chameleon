@@ -23,13 +23,13 @@ export default function Home() {
   const [page, setPage] = useState([]);
 
   const handleSelectPage = (page) => {
-    setPage(localStorage.setItem("página principal" , page));
+    setPage(localStorage.setItem("paginaPrincipal" , page));
   };
 
   useEffect(() => {
     if (user) {
       //console.log(user);
-      setPage(localStorage.getItem("página principal"));
+      setPage(localStorage.getItem("paginaPrincipal"));
       setLoading(false);
     } else {
       router.push("/login");
