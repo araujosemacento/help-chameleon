@@ -13,8 +13,8 @@ const CodeEditor = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
       fontSize={14}
-      width="50%"
-      height="300px"
+      width="100%"
+      height="200px"
     />
   );
 };
