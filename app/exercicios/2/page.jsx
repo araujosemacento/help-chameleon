@@ -4,6 +4,7 @@ import { React, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import CodeEditor from '@/components/CodeEditor';
 import Questao2 from '@/lib/Questao2';
+import { ExercicioDialog, ExercicioTrigger, ExercicioAnswer } from "@/components/RespostaExercicio";
 import CodeResult from '@/components/CodeResult';
 
 const Exercicio = () => {
@@ -28,7 +29,7 @@ const Exercicio = () => {
 
     <div className="flex flex-col h-full w-full overflow-auto">
       <div className="flex flex-row w-full p-10 pb-2 items-center gap-2">
-        <img src="/magomeleon.png" className="w-10"></img>
+        <img src="/magomeleon_2.png" className="w-10"></img>
         <h2 className="text-xl text-accent-600">Exercício 2</h2>
       </div>
       <main className="flex flex-col md:flex-row-reverse w-full h-full p-4">
@@ -41,20 +42,22 @@ const Exercicio = () => {
         </section>
         <section className="flex flex-col w-full h-3/4 md:w-3/4 md:h-full p-10 pt-2 justify-evenly text-justify">
           <p>
-          Ei, um pokémon apareceu, é um Pikachu de nível 2! Pikachus são pokémons relativamente comuns de se encontrar. Ele está enfraquecido, utilize a pokébola que você criou para capturá-lo.
+            Ei, um pokémon apareceu, é um Pikachu de nível 2! Pikachus são pokémons relativamente comuns de se encontrar. Ele está enfraquecido, utilize a pokébola que você criou para capturá-lo.
           </p>
           <p className="font-bold">
-          Em JavaScript, adicione o método capturar que imprimirá “Você capturou o Pikachu”, ao objeto Pokébola e execute-o.
+            Em JavaScript, adicione o método capturar que imprimirá “Você capturou o Pikachu”, ao objeto Pokébola e execute-o.
           </p>
           <div className="flex flex-col w-full">
             <CodeEditor value={code} onChange={handleCodeChange} />
-            <button
-              className="flex p-2 px-4 h-fit text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_4px_0_0_color(var(--accent-700))] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-start translate-x-10"
-              onClick={handleCorrection}
-            >
-              <p className="text-lg">Verificar</p>
-            </button>
-            <CodeResult output={correctionResult.output} message={correctionResult.message} />
+            <ExercicioDialog>
+              <ExercicioTrigger
+                onClick={handleCorrection}
+                className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all`}
+              >
+                <p className="text-lg">Verificar</p>
+                <ExercicioAnswer errors={correctionResult.output} caminho={"/exercicios/3"} />
+              </ExercicioTrigger>
+            </ExercicioDialog>
           </div>
         </section>
       </main>
