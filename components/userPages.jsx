@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Tooltip, Switch } from "@material-tailwind/react";
-import { LockClosedIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
+import { Sair, SairTrigger, SairContent } from "@/components/Sair";
+import { Pop, PopTrigger, PopContent } from "@/components/ExerciciosPop";
+import { updateProfile } from "firebase/auth";
 
 export function Exercicios() {
   const { user } = useAuth();
@@ -23,22 +26,224 @@ export function Exercicios() {
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
-      <div className=" flex flex-row w-full p-8 px-16 text-xl text-text-900 font-bold gap-4">
-        <svg
-          width="34"
-          height="33"
-          className="fill-text-900 h-6"
-          viewBox="0 0 34 33"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M31.4167 12.1761L29.0833 9.87389L30.3333 8.59945L25 3.33722L23.7083 4.57056L21.3333 2.22723L22.5833 0.952781C23.2222 0.322411 24.0139 0.0140774 24.9583 0.0277811C25.9028 0.0414848 26.6944 0.363522 27.3333 0.993892L32.7083 6.29722C33.3472 6.92759 33.6667 7.70185 33.6667 8.62C33.6667 9.53815 33.3472 10.3124 32.7083 10.9428L31.4167 12.1761ZM11.4167 31.9506C10.7778 32.5809 9.99306 32.8961 9.0625 32.8961C8.13194 32.8961 7.34722 32.5809 6.70833 31.9506L1.33333 26.6472C0.694444 26.0169 0.375 25.2426 0.375 24.3244C0.375 23.4063 0.694444 22.632 1.33333 22.0017L2.58333 20.7683L4.95833 23.1117L3.66667 24.345L9.04167 29.6483L10.2917 28.3739L12.6667 30.7172L11.4167 31.9506ZM27.9583 18.1372L30.3333 15.7939L17.7083 3.33722L15.3333 5.68056L27.9583 18.1372ZM16.2917 29.6483L18.6667 27.2639L6.08333 14.8483L3.66667 17.1917L16.2917 29.6483ZM16.0417 20.0283L20.625 15.5472L17.9583 12.9161L13.4167 17.4383L16.0417 20.0283ZM18.6667 31.9506C18.0278 32.5809 17.2361 32.8961 16.2917 32.8961C15.3472 32.8961 14.5556 32.5809 13.9167 31.9506L1.33333 19.535C0.694444 18.9046 0.375 18.1235 0.375 17.1917C0.375 16.2598 0.694444 15.4787 1.33333 14.8483L3.70833 12.505C4.34722 11.8746 5.13194 11.5594 6.0625 11.5594C6.99306 11.5594 7.77778 11.8746 8.41667 12.505L11.0417 15.095L15.625 10.5728L13 8.02389C12.3611 7.39352 12.0417 6.61241 12.0417 5.68056C12.0417 4.74871 12.3611 3.9676 13 3.33722L15.375 0.993892C16.0139 0.363522 16.7986 0.0483367 17.7292 0.0483367C18.6597 0.0483367 19.4444 0.363522 20.0833 0.993892L32.7083 13.4506C33.3472 14.0809 33.6667 14.8552 33.6667 15.7733C33.6667 16.6915 33.3472 17.4657 32.7083 18.0961L30.3333 20.4394C29.6944 21.0698 28.9028 21.385 27.9583 21.385C27.0139 21.385 26.2222 21.0698 25.5833 20.4394L23 17.8494L18.4167 22.3717L21.0417 24.9617C21.6806 25.592 22 26.3663 22 27.2844C22 28.2026 21.6806 28.9769 21.0417 29.6072L18.6667 31.9506Z" />
-        </svg>
-        Exercícios
-      </div>
-      <section className="flex flex-col relative w-full h-full justify-start items-center gap-8">
-        {Array.from({ length: 10 }, (_, i) => i).map((_, index) => (
-          <div key={index}>
+      <section className="reltive flex flex-col relative w-full h-full justify-start items-center gap-8">
+        <img
+          src="/background_exercicios.jpg"
+          alt="background"
+          className="absolute w-full"
+        />
+        {Array.from({ length: 4 }, (_, i) => i).map((_, index) => (
+          <div key={index} className="translate-y-[39vw]">
+            <Pop>
+              <PopTrigger asChild>
+                <button
+                  className={`clicked flex rounded-[50%] w-[100px] h-[80px] ${
+                    index === 0
+                      ? "shadow-[0_10px_0_0_color(var(--success-500))] md:active:shadow-none bg-success-400"
+                      : index === 1
+                      ? "shadow-[0_10px_0_0_color(var(--accent-600))] md:active:shadow-none bg-accent-300"
+                      : "shadow-[0_10px_0_0_color(var(--text-500))] md:active:shadow-none bg-background-200"
+                  } transition-all justify-center items-center`}
+                  onMouseDown={() => handleButtonClick(true, index)}
+                  onMouseUp={() => handleButtonClick(false, index)}
+                  onTouchStart={() => handleButtonClick(true, index)}
+                  onTouchEnd={() => handleButtonClick(false, index)}
+                  style={{
+                    transform: `translateX(${parseInt(
+                      -20 * Math.sin(index / 1.25) - 15
+                    )}vw) ${
+                      buttonClicked[index]
+                        ? "translateY(10px)"
+                        : "translateY(0px)"
+                    }`,
+                  }}
+                >
+                  {index === 0 ? (
+                    <svg
+                      width="75"
+                      height="45"
+                      className="w-[50px] fill-success-500"
+                      viewBox="0 0 75 45"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_i_733_114)">
+                        <path d="M27.2618 45L0 24.54L13.71 14.6937L27.4105 24.9765L61.4386 0L75 9.95541L27.2618 45Z" />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_i_733_114"
+                          x="0"
+                          y="0"
+                          width="75"
+                          height="49"
+                          filterUnits="userSpaceOnUse"
+                          colorInterpolationFilters="sRGB"
+                        >
+                          <feFlood
+                            floodOpacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="BackgroundImageFix"
+                            result="shape"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="8" />
+                          <feGaussianBlur stdDeviation="2" />
+                          <feComposite
+                            in2="hardAlpha"
+                            operator="arithmetic"
+                            k2="-1"
+                            k3="1"
+                          />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0.266667 0 0 0 0 0.533333 0 0 0 0 0.2 0 0 0 1 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="shape"
+                            result="effect1_innerShadow_733_114"
+                          />
+                        </filter>
+                      </defs>
+                    </svg>
+                  ) : index === 1 ? (
+                    <svg
+                      width="59"
+                      height="47"
+                      className="w-[50px] fill-accent-600"
+                      viewBox="0 0 59 47"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_i_733_669)">
+                        <path d="M27.1838 1.70294C28.0281 -0.376073 30.9719 -0.376068 31.8162 1.70294L37.286 15.1702C37.6688 16.1129 38.5848 16.7295 39.6022 16.7295H55.8885C58.4424 16.7295 59.3528 20.1075 57.1448 21.3909L44.9995 28.4501C43.9229 29.0759 43.471 30.3986 43.9396 31.5523L48.7887 43.4916C49.6856 45.7 47.2769 47.7915 45.2161 46.5937L30.7563 38.1892C29.9796 37.7377 29.0204 37.7377 28.2437 38.1892L13.7839 46.5937C11.7231 47.7915 9.31437 45.7 10.2113 43.4916L15.0604 31.5523C15.529 30.3986 15.0771 29.0759 14.0005 28.4501L1.85525 21.3909C-0.352778 20.1075 0.55763 16.7295 3.11154 16.7295H19.3978C20.4152 16.7295 21.3312 16.1129 21.714 15.1702L27.1838 1.70294Z" />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_i_733_669"
+                          x="0.607422"
+                          y="0.143555"
+                          width="57.7852"
+                          height="50.7998"
+                          filterUnits="userSpaceOnUse"
+                          colorInterpolationFilters="sRGB"
+                        >
+                          <feFlood
+                            floodOpacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="BackgroundImageFix"
+                            result="shape"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="8" />
+                          <feGaussianBlur stdDeviation="2" />
+                          <feComposite
+                            in2="hardAlpha"
+                            operator="arithmetic"
+                            k2="-1"
+                            k3="1"
+                          />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="shape"
+                            result="effect1_innerShadow_733_669"
+                          />
+                        </filter>
+                      </defs>
+                    </svg>
+                  ) : (
+                    <svg
+                      width="45"
+                      height="50"
+                      viewBox="0 0 45 50"
+                      className="dark:invert w-[40px]"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_i_666_667)">
+                        <path
+                          d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
+                          fill="#8B8B8B"
+                        />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_i_666_667"
+                          x="0"
+                          y="0"
+                          width="45"
+                          height="54"
+                          filterUnits="userSpaceOnUse"
+                          colorInterpolationFilters="sRGB"
+                        >
+                          <feFlood
+                            floodOpacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="BackgroundImageFix"
+                            result="shape"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="8" />
+                          <feGaussianBlur stdDeviation="2" />
+                          <feComposite
+                            in2="hardAlpha"
+                            operator="arithmetic"
+                            k2="-1"
+                            k3="1"
+                          />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="shape"
+                            result="effect1_innerShadow_666_667"
+                          />
+                        </filter>
+                      </defs>
+                    </svg>
+                  )}
+                </button>
+              </PopTrigger>
+              <PopContent asChild />
+            </Pop>
+          </div>
+        ))}
+        {Array.from({ length: 4 }, (_, i) => i).map((_, index) => (
+          <div key={index} className="translate-y-[50vw]">
             <button
               className={`clicked flex rounded-[50%] w-[100px] h-[80px] ${
                 index === 0
@@ -231,22 +436,6 @@ export function Exercicios() {
             </button>
           </div>
         ))}
-        <img
-          src="/mestre_dos_magos.png"
-          alt="Mestre dos Camaleagos"
-          className="absolute h-56 -translate-x-1/2 -translate-y-1/2 left-[75%] top-[150%] md:top-[175%]"
-        />
-        <img
-          src="/goku.png"
-          alt="Kamehamehameleon"
-          className="absolute h-56 -translate-x-1/2 -translate-y-1/2 left-[30%] top-[90%] md:top-[100%]"
-        />
-        <img
-          src="/ashmeleon.png"
-          alt="Ash Ketchameleon"
-          className="absolute h-56 -translate-x-1/2 -translate-y-1/2 left-[70%] top-[30%] md:top-[45%]"
-        />
-        <hr className="border-transparent w-full m-4" />
       </section>
     </div>
   );
@@ -258,23 +447,10 @@ export function Nivel({ redirect }) {
 
   const handleRedirect = () => {
     redirect("refazer");
-  }
+  };
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
-      <div className=" flex flex-row w-full pt-8 px-16 text-xl text-text-900 font-bold gap-4">
-        <svg
-          width="30"
-          height="34"
-          className="fill-text-900 h-6"
-          viewBox="0 0 30 34"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M3.33333 34.0003C2.41667 34.0003 1.63194 33.6739 0.979167 33.0212C0.326389 32.3684 0 31.5837 0 30.667V7.33366C0 6.41699 0.326389 5.63227 0.979167 4.97949C1.63194 4.32671 2.41667 4.00033 3.33333 4.00033H10.2917C10.5972 3.0281 11.1944 2.22949 12.0833 1.60449C12.9722 0.979492 13.9444 0.666992 15 0.666992C16.1111 0.666992 17.1042 0.979492 17.9792 1.60449C18.8542 2.22949 19.4444 3.0281 19.75 4.00033H26.6667C27.5833 4.00033 28.3681 4.32671 29.0208 4.97949C29.6736 5.63227 30 6.41699 30 7.33366V30.667C30 31.5837 29.6736 32.3684 29.0208 33.0212C28.3681 33.6739 27.5833 34.0003 26.6667 34.0003H3.33333ZM3.33333 30.667H26.6667V7.33366H23.3333V12.3337H6.66667V7.33366H3.33333V30.667ZM15 7.33366C15.4722 7.33366 15.8681 7.17394 16.1875 6.85449C16.5069 6.53505 16.6667 6.13921 16.6667 5.66699C16.6667 5.19477 16.5069 4.79894 16.1875 4.47949C15.8681 4.16005 15.4722 4.00033 15 4.00033C14.5278 4.00033 14.1319 4.16005 13.8125 4.47949C13.4931 4.79894 13.3333 5.19477 13.3333 5.66699C13.3333 6.13921 13.4931 6.53505 13.8125 6.85449C14.1319 7.17394 14.5278 7.33366 15 7.33366Z" />
-        </svg>
-        Nível
-      </div>
       <section className="flex flex-col w-full h-full justify-evenly items-center p-10">
         <div className="flex flex-row w-1/2 p-6 px-20 font-bold text-2xl justify-center bg-background-200 rounded-3xl my-6">
           <p className="text-center uppercase">Iniciante</p>
@@ -306,19 +482,6 @@ export function Desafios() {
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
-      <div className=" flex flex-row w-full items-center py-8 px-16 text-xl text-text-900 font-bold gap-4">
-        <svg
-          width="34"
-          height="34"
-          className="fill-text-900 h-6"
-          viewBox="0 0 34 34"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M17.0002 33.6663C14.6946 33.6663 12.5279 33.2288 10.5002 32.3538C8.47238 31.4788 6.7085 30.2913 5.2085 28.7913C3.7085 27.2913 2.521 25.5275 1.646 23.4997C0.770996 21.4719 0.333496 19.3052 0.333496 16.9997C0.333496 14.6941 0.770996 12.5275 1.646 10.4997C2.521 8.4719 3.7085 6.70801 5.2085 5.20801C6.7085 3.70801 8.47238 2.52051 10.5002 1.64551C12.5279 0.770508 14.6946 0.333008 17.0002 0.333008C19.3057 0.333008 21.4724 0.770508 23.5002 1.64551C25.5279 2.52051 27.2918 3.70801 28.7918 5.20801C30.2918 6.70801 31.4793 8.4719 32.3543 10.4997C33.2293 12.5275 33.6668 14.6941 33.6668 16.9997C33.6668 19.3052 33.2293 21.4719 32.3543 23.4997C31.4793 25.5275 30.2918 27.2913 28.7918 28.7913C27.2918 30.2913 25.5279 31.4788 23.5002 32.3538C21.4724 33.2288 19.3057 33.6663 17.0002 33.6663ZM17.0002 30.333C20.7224 30.333 23.8752 29.0413 26.4585 26.458C29.0418 23.8747 30.3335 20.7219 30.3335 16.9997C30.3335 13.2775 29.0418 10.1247 26.4585 7.54134C23.8752 4.95801 20.7224 3.66634 17.0002 3.66634C13.2779 3.66634 10.1252 4.95801 7.54183 7.54134C4.9585 10.1247 3.66683 13.2775 3.66683 16.9997C3.66683 20.7219 4.9585 23.8747 7.54183 26.458C10.1252 29.0413 13.2779 30.333 17.0002 30.333ZM17.0002 26.9997C14.2224 26.9997 11.8613 26.0275 9.91683 24.083C7.97238 22.1386 7.00016 19.7775 7.00016 16.9997C7.00016 14.2219 7.97238 11.8608 9.91683 9.91634C11.8613 7.9719 14.2224 6.99967 17.0002 6.99967C19.7779 6.99967 22.1391 7.9719 24.0835 9.91634C26.0279 11.8608 27.0002 14.2219 27.0002 16.9997C27.0002 19.7775 26.0279 22.1386 24.0835 24.083C22.1391 26.0275 19.7779 26.9997 17.0002 26.9997ZM17.0002 23.6663C18.8335 23.6663 20.4029 23.0136 21.7085 21.708C23.0141 20.4025 23.6668 18.833 23.6668 16.9997C23.6668 15.1663 23.0141 13.5969 21.7085 12.2913C20.4029 10.9858 18.8335 10.333 17.0002 10.333C15.1668 10.333 13.5974 10.9858 12.2918 12.2913C10.9863 13.5969 10.3335 15.1663 10.3335 16.9997C10.3335 18.833 10.9863 20.4025 12.2918 21.708C13.5974 23.0136 15.1668 23.6663 17.0002 23.6663ZM17.0002 20.333C16.0835 20.333 15.2988 20.0066 14.646 19.3538C13.9932 18.7011 13.6668 17.9163 13.6668 16.9997C13.6668 16.083 13.9932 15.2983 14.646 14.6455C15.2988 13.9927 16.0835 13.6663 17.0002 13.6663C17.9168 13.6663 18.7016 13.9927 19.3543 14.6455C20.0071 15.2983 20.3335 16.083 20.3335 16.9997C20.3335 17.9163 20.0071 18.7011 19.3543 19.3538C18.7016 20.0066 17.9168 20.333 17.0002 20.333Z" />
-        </svg>
-        Desafios
-      </div>
       <section className="flex flex-row w-full h-full justify-center mb-10 pb-10 md:px-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 w-1/2 sm:w-4/5 h-full lg:px-10 gap-16">
           <div className="flex flex-col w-full h-64">
@@ -1045,18 +1208,6 @@ export function Ranking() {
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
-      <div className=" flex flex-row w-full p-8 px-16 text-xl text-text-900 font-bold gap-4">
-        <svg
-          width="30"
-          height="30"
-          className="fill-text-900 h-6"
-          viewBox="0 0 30 30"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M6.66667 30V26.6667H13.3333V21.5C11.9722 21.1944 10.7569 20.6181 9.6875 19.7708C8.61806 18.9236 7.83333 17.8611 7.33333 16.5833C5.25 16.3333 3.50694 15.4236 2.10417 13.8542C0.701389 12.2847 0 10.4444 0 8.33333V6.66667C0 5.75 0.326389 4.96528 0.979167 4.3125C1.63194 3.65972 2.41667 3.33333 3.33333 3.33333H6.66667V0H23.3333V3.33333H26.6667C27.5833 3.33333 28.3681 3.65972 29.0208 4.3125C29.6736 4.96528 30 5.75 30 6.66667V8.33333C30 10.4444 29.2986 12.2847 27.8958 13.8542C26.4931 15.4236 24.75 16.3333 22.6667 16.5833C22.1667 17.8611 21.3819 18.9236 20.3125 19.7708C19.2431 20.6181 18.0278 21.1944 16.6667 21.5V26.6667H23.3333V30H6.66667ZM6.66667 13V6.66667H3.33333V8.33333C3.33333 9.38889 3.63889 10.3403 4.25 11.1875C4.86111 12.0347 5.66667 12.6389 6.66667 13ZM15 18.3333C16.3889 18.3333 17.5694 17.8472 18.5417 16.875C19.5139 15.9028 20 14.7222 20 13.3333V3.33333H10V13.3333C10 14.7222 10.4861 15.9028 11.4583 16.875C12.4306 17.8472 13.6111 18.3333 15 18.3333ZM23.3333 13C24.3333 12.6389 25.1389 12.0347 25.75 11.1875C26.3611 10.3403 26.6667 9.38889 26.6667 8.33333V6.66667H23.3333V13Z" />
-        </svg>
-        Ranking
-      </div>
       <section className="flex flex-row w-full h-full justify-center items-start">
         <div className="flex flex-col w-3/4 gap-10">
           <div className="flex flex-row w-full px-8 items-center justify-end text-sm md:text-base text-text-900 font-bold">
@@ -1147,34 +1298,39 @@ export function Ranking() {
 export function Perfil() {
   const { user } = useAuth();
 
+  const [editarUsuario, setEditarUsuario] = useState(false);
+  const [editarBiografia, setEditarBiografia] = useState(false);
+
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
-      <div className=" flex flex-row w-full pt-8 px-16 text-xl text-text-900 font-bold gap-4">
-        <svg
-          width="34"
-          height="34"
-          className="fill-text-900 h-6"
-          viewBox="0 0 34 34"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M6.41683 26.083C8.05572 24.9071 9.7409 23.9974 11.4724 23.3538C13.2039 22.7103 15.0465 22.3886 17.0002 22.3886C18.9539 22.3886 20.8011 22.7103 22.5418 23.3538C24.2826 23.9974 25.9724 24.9071 27.6113 26.083C28.7502 24.7034 29.5812 23.2636 30.1043 21.7636C30.6275 20.2636 30.8891 18.6756 30.8891 16.9997C30.8891 13.083 29.5534 9.78902 26.8821 7.11772C24.2108 4.44641 20.9168 3.11076 17.0002 3.11076C13.0835 3.11076 9.78951 4.44641 7.11821 7.11772C4.4469 9.78902 3.11125 13.083 3.11125 16.9997C3.11125 18.6756 3.37745 20.2636 3.90987 21.7636C4.44229 23.2636 5.27794 24.7034 6.41683 26.083ZM16.995 18.3886C15.3781 18.3886 14.0164 17.8336 12.9099 16.7237C11.8034 15.6138 11.2502 14.2503 11.2502 12.6334C11.2502 11.0165 11.8051 9.65477 12.915 8.5483C14.025 7.4418 15.3884 6.88855 17.0053 6.88855C18.6222 6.88855 19.984 7.44352 21.0905 8.55347C22.1969 9.66338 22.7502 11.0268 22.7502 12.6437C22.7502 14.2607 22.1952 15.6224 21.0853 16.7288C19.9753 17.8353 18.6119 18.3886 16.995 18.3886ZM17.0132 33.6663C14.7175 33.6663 12.5557 33.2288 10.528 32.3538C8.50018 31.4788 6.73165 30.2867 5.22237 28.7775C3.71312 27.2682 2.521 25.5018 1.646 23.4784C0.770996 21.4549 0.333496 19.2929 0.333496 16.9923C0.333496 14.6917 0.770996 12.5321 1.646 10.5136C2.521 8.49505 3.71312 6.73116 5.22237 5.22188C6.73165 3.71263 8.49801 2.52051 10.5215 1.64551C12.5449 0.770508 14.7069 0.333008 17.0075 0.333008C19.3082 0.333008 21.4678 0.770508 23.4863 1.64551C25.5048 2.52051 27.2687 3.71263 28.778 5.22188C30.2872 6.73116 31.4793 8.49535 32.3543 10.5145C33.2293 12.5336 33.6668 14.691 33.6668 16.9867C33.6668 19.2824 33.2293 21.4441 32.3543 23.4719C31.4793 25.4997 30.2872 27.2682 28.778 28.7775C27.2687 30.2867 25.5045 31.4788 23.4854 32.3538C21.4663 33.2288 19.3089 33.6663 17.0132 33.6663ZM17.0002 30.8886C18.5094 30.8886 19.9677 30.6687 21.3752 30.2288C22.7826 29.789 24.1391 29.0645 25.4446 28.0552C24.1391 27.1201 22.778 26.4048 21.3613 25.9094C19.9446 25.414 18.4909 25.1663 17.0002 25.1663C15.5094 25.1663 14.0557 25.414 12.639 25.9094C11.2224 26.4048 9.86126 27.1201 8.55571 28.0552C9.86126 29.0645 11.2177 29.789 12.6252 30.2288C14.0326 30.6687 15.4909 30.8886 17.0002 30.8886ZM17.0002 15.6108C17.8705 15.6108 18.5835 15.333 19.1391 14.7775C19.6946 14.2219 19.9724 13.5089 19.9724 12.6386C19.9724 11.7682 19.6946 11.0552 19.1391 10.4997C18.5835 9.94412 17.8705 9.66634 17.0002 9.66634C16.1298 9.66634 15.4168 9.94412 14.8612 10.4997C14.3057 11.0552 14.0279 11.7682 14.0279 12.6386C14.0279 13.5089 14.3057 14.2219 14.8612 14.7775C15.4168 15.333 16.1298 15.6108 17.0002 15.6108Z" />
-        </svg>
-        Perfil
-      </div>
       <section className="flex flex-col-reverse lg:flex-row w-full items-center justify-between p-8 px-16">
         <div className="flex flex-col gap-3 text-justify w-full md:w-[40vw]">
-          <h2 className="text-accent-600 text-2xl font-bold">{`${
-            user ? user.displayName : "Usuário"
-          }`}</h2>
+          <h2
+            contentEditable={editarUsuario}
+            className="relative text-accent-600 text-2xl font-bold"
+          >
+            {user.displayName}
+            <span
+              onClick={() => setEditarUsuario(!editarUsuario)}
+              className="material-symbols-outlined absolute right-0 top-0 scale-75 aspect-square text-text-900 hover:text-accent-500 rounded-lg p-1 active:bg-accent-700/25 text-[36px]"
+            >
+              edit
+            </span>
+          </h2>
           <p className="text-text-900 font-semibold">
             Nível: <span className="text-primary-600">Iniciante</span>
           </p>
-          <p className="text-text-900">
-            We try not to sting. It&apos;s usually fatal for us. So you have to
-            watch your temper. Very carefully. You kick a wall, take a walk,
-            write an angry letter and throw it out. Work through it like any
-            emotion.
+          <p
+            contentEditable={editarBiografia}
+            className="relative text-text-900"
+          >
+            {localStorage.getItem("biografia")}
+            <span
+              onClick={() => setEditarBiografia(!editarBiografia)}
+              className="material-symbols-outlined absolute right-0 top-0 scale-75 aspect-square text-text-900 hover:text-accent-500 rounded-lg p-1 active:bg-accent-700/25 text-[36px]"
+            >
+              edit
+            </span>
           </p>
         </div>
         <img
@@ -1210,7 +1366,7 @@ export function Perfil() {
               </g>
             </svg>
             <img
-              src="Poké_Ball_icon.svg"
+              src="Poké_Ball_icon.svg.png"
               alt="pokéball"
               className="w-6 h-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%]"
             />
@@ -1291,35 +1447,36 @@ export function Perfil() {
 
 export function Refazer({ redirect }) {
   const router = useRouter();
+
+  const [primeiraVez, setPrimeiraVez] = useState([]);
+
+  useEffect(() => {
+    setPrimeiraVez(localStorage.getItem("primeiroTesteDeNivel") === "true");
+  }, []);
+
   const handleRedirect = () => {
     redirect("nivel");
-  }
+  };
 
   return (
     <div className="fixed z-10 flex flex-col w-full h-full bg-background-50">
       <div className="flex flex-row w-full p-10 pb-4 items-center gap-2">
         <div className="flex flex-row w-full items-center gap-2">
-          <svg
-            className="fill-accent-600 w-10"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1000 1000"
-          >
-            <path
-              className="cls-1"
-              d="M289.64,280.43q14.5-11.25,29.95-21.27a247.78,247.78,0,0,1,74.91-32.91,243.27,243.27,0,0,1,79.67-5.86,293.89,293.89,0,0,1,42.41,7c24.57,5.84,48.73,13,72.66,20.86,6.82,2.25,7.3.06,7-5.65a254,254,0,0,1,.12-36.7c3.06-34.25,21.17-48.19,55.12-43,30.84,4.76,59,16.75,85.92,31.8,31,17.31,58.89,38.55,81.91,65.81,30.08,35.6,45.74,77.25,51.45,123,.65,5.2,1.08,10.43,1.62,15.64-.27,16.67-1,33.29-4.91,49.61-7.54,31.37-26,47-58.2,50.87-16.89,2-33.55.21-50.33-.19-14.61-.36-29.25-1.14-43.78-1.92-18-1-36.13-1.77-54.15-2.38-26.12-.89-52.16-4.07-78.75-2.89.31,3.18,3.09,4.29,5,5.86a252.11,252.11,0,0,1,19.59,18.53c14.08,14.6,15.44,37.88,5.66,55.18-2.89,5.11-7.62.7-11.5-1.4-5.1-2.76-10.06-5.77-15-8.86-9.55-6-18.83-12.49-28.47-18.37-8.51-5.19-17.13-10.2-26-14.74s-18.2-7.37-26.91-11.73c-43.79-15.58-86.44-12.83-127.23,10-15.94,8.93-29.33,23.73-39.55,38.68a12.06,12.06,0,0,1-3.6,3.91c-3.26,1.87-4.84-.63-6.45-3-2-3-4.1-5.91-5.83-9.07a69.43,69.43,0,0,1-7.05-18c-2.52-11.2,1.48-20.64,8.62-29,9.47-11.12,20.8-20.13,32.48-28.76,3.36-2.48,6.66-5.06,11.05-8.41-5.47-.78-8.89,1.38-12.44,2.44-24.4,7.28-47.64,16.82-65.83,35.56-23.18,23.9-34.36,53.6-39.78,85.61-6.55,38.77-2.57,76.16,21.51,108.66C301.82,747.68,342.9,773,397,770.62c31.51-1.4,59.86-12.81,80.06-38.23,17.93-22.56,19.48-48.11,7.81-74.11-6.73-15-19.87-21.15-35.71-21.91-18.06-.86-18.13-.75-20.83,16.75-1.72,11.18-4.55,21.82-10.65,31.65-10.6,17.1-44.11,26.54-64.74,9.31-10-8.32-12.17-22.15-11.11-35.3,3.94-48.45,48.06-88.86,96.5-88,25.52.46,47.41,11.22,66.89,26.92,31.4,25.31,49.26,57.5,47.15,98.72-1.75,34.31-17.25,62.45-41.75,85.74C481.36,810,446.94,828.33,407.07,836c-34.53,6.65-67.43-.08-99.94-11.52-16.82-5.93-33.39-12.7-48.49-21.81-16.23-9.8-32.38-19.85-46.77-32.78-27.4-24.65-48.61-53.32-62.4-87.36C126.53,626,124,567.66,136.42,508.42c9.83-46.82,31.16-90.53,58.8-129.33a476.88,476.88,0,0,1,56.09-65.31A458.14,458.14,0,0,1,289.64,280.43Zm494,71.36c.08-49.48-53-80.73-95.76-59.62-35.55,17.54-46.72,59.45-23.87,89.53a68.4,68.4,0,0,0,87.33,19C772,389.54,782.45,371.86,783.66,351.79Z"
-            />
-            <path
-              className="cls-1"
-              d="M706.89,361.66a25.4,25.4,0,1,1,.76-50.8c13.51.23,25.35,12.53,24.87,25.85C732,350.75,720.62,361.85,706.89,361.66Z"
-            />
-          </svg>
+          <img src="/magomeleon.png" className="w-10"></img>
           <h2 className="text-xl text-accent-600">ProgQuest</h2>
         </div>
-        <button onClick={handleRedirect} className="flex w-fit-h-fit">
-          <span class="material-symbols-outlined aspect-square text-text-900 hover:text-accent-500 rounded-lg p-1 active:bg-accent-700/25 text-[36px]">
-            close
-          </span>
-        </button>
+        {!primeiraVez && (
+          <Sair>
+            <SairTrigger>
+              <button className="flex w-fit-h-fit">
+                <span className="material-symbols-outlined aspect-square text-text-900 hover:text-accent-500 rounded-lg p-1 active:bg-accent-700/25 text-[36px]">
+                  close
+                </span>
+              </button>
+            </SairTrigger>
+            <SairContent caminho={"nivel"} />
+          </Sair>
+        )}
       </div>
       <main className="flex flex-col md:flex-row w-full h-full p-4">
         <section className="flex flex-col w-full h-1/4 md:w-4/12 md:h-full place-content-center p-4 md:items-center md:ml-16">
@@ -1343,7 +1500,9 @@ export function Refazer({ redirect }) {
           </p>
           <div className="flex flex-col w-full"></div>
           <button
-            onClick={router.push("/nivelamento/1")}
+            onClick={() => {
+              router.push("/nivelamento/1");
+            }}
             className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_color(var(--accent-700))] hover:shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white self-end"
           >
             Iniciar Teste de Nível

@@ -22,12 +22,37 @@ export function AuthProvider({ children }) {
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
     setUser(result.user);
+    if (localStorage.getItem("userUID") !== result.user.uid) {
+      localStorage.clear();
+      localStorage.setItem("paginaPrincipal", "refazer");
+      localStorage.setItem("primeiroTesteDeNivel", "true");
+      localStorage.setItem("biografia", "Fale um pouco sobre você.");
+    } else {
+      localStorage.setItem("paginaPrincipal", "exercicios");
+    }
+    if (localStorage.getItem("paginaPrincipal") === "refazer") {
+      localStorage.setItem("paginaPrincipal", "nivel");
+    }
+    localStorage.setItem("userUID", result.user.uid);
   };
 
   const signInWithGithub = async () => {
     const provider = new GithubAuthProvider();
     const result = await signInWithPopup(auth, provider);
     setUser(result.user);
+    console.log(result.user.uid);
+    if (localStorage.getItem("userUID") !== result.user.uid) {
+      localStorage.clear();
+      localStorage.setItem("paginaPrincipal", "refazer");
+      localStorage.setItem("primeiroTesteDeNivel", "true");
+      localStorage.setItem("biografia", "Fale um pouco sobre você.");
+    } else {
+      localStorage.setItem("paginaPrincipal", "exercicios");
+    }
+    if (localStorage.getItem("paginaPrincipal") === "refazer") {
+      localStorage.setItem("paginaPrincipal", "nivel");
+    }
+    localStorage.setItem("userUID", result.user.uid);
   };
 
   const createSignUpUser = async (displayName, email, password) => {
@@ -38,6 +63,11 @@ export function AuthProvider({ children }) {
         displayName: displayName,
       });
       setUser(result.user);
+      localStorage.clear();
+      localStorage.setItem("userUID", result.user.uid);
+      localStorage.setItem("paginaPrincipal", "refazer");
+      localStorage.setItem("primeiroTesteDeNivel", "true");
+      localStorage.setItem("biografia", "Fale um pouco sobre você.");
     } else {
       return console.log("Erro ao cadastrar usuário");
     }
@@ -46,6 +76,17 @@ export function AuthProvider({ children }) {
   const signInUserWithEmailAndPassword = async (email, password) => {
     const result = await signInWithEmailAndPassword(auth, email, password);
     setUser(result.user);
+    if (localStorage.getItem("userUID") !== result.user.uid) {
+      localStorage.clear();
+      localStorage.setItem("paginaPrincipal", "exercicios");
+      localStorage.setItem("primeiroTesteDeNivel", "false")
+    } else {
+      localStorage.setItem("paginaPrincipal", "exercicios");
+    }
+    if (localStorage.getItem("paginaPrincipal") === "refazer") {
+      localStorage.setItem("paginaPrincipal", "nivel");
+    }
+    localStorage.setItem("userUID", result.user.uid);
   };
 
   const signOutUser = async () => {

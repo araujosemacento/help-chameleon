@@ -104,6 +104,18 @@
   --accent-800: display-p3 0.298 0.102 0.212;
   --accent-900: display-p3 0.149 0.051 0.106;
   --accent-950: display-p3 0.075 0.027 0.055;
+
+  --gray-50: display-p3 0.941 0.949 0.957;
+  --gray-100: display-p3 0.871 0.886 0.91;
+  --gray-200: display-p3 0.757 0.784 0.824;
+  --gray-300: display-p3 0.627 0.671 0.733;
+  --gray-400: display-p3 0.51 0.569 0.647;
+  --gray-500: display-p3 0.392 0.455 0.545;
+  --gray-600: display-p3 0.318 0.369 0.443;
+  --gray-700: display-p3 0.235 0.271 0.325;
+  --gray-800: display-p3 0.161 0.184 0.22;
+  --gray-900: display-p3 0.075 0.086 0.106;
+  --gray-950: display-p3 0.043 0.047 0.059;
 }
 
 @media (prefers-color-scheme: dark) {

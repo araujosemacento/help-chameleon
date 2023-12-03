@@ -60,6 +60,8 @@ export const NivelAnswer = (props) => {
             </p>
             <button
               onClick={() => {
+                localStorage.setItem("testeDeNivel", "recente");
+                localStorage.setItem("primeiroTesteDeNivel", "false");
                 router.push(props.caminho);
               }}
               className={`flex p-4 w-1/2 h-fit text-center font-bold active:translate-y-[5px] active:shadow-none  text-white justify-center items-center gap-2 outline-none rounded-2xl self-center transition-all bg-success-600 shadow-[0_5px_0_0_color(var(--success-500))] hover:bg-success-700`}
@@ -75,6 +77,8 @@ export const NivelAnswer = (props) => {
             </p>
             <button
               onClick={() => {
+                localStorage.setItem("testeDeNivel", "recente");
+                localStorage.setItem("primeiroTesteDeNivel", "false");
                 router.push(props.caminho);
               }}
               className={`flex p-4 w-1/2 h-fit text-center font-bold active:translate-y-[5px] active:shadow-none  text-white justify-center items-center gap-2 outline-none rounded-2xl self-center transition-all bg-fail-600 shadow-[0_5px_0_0_color(var(--fail-500))] hover:bg-fail-700`}

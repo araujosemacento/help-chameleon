@@ -23,21 +23,40 @@ export default function Home() {
   const [page, setPage] = useState([]);
 
   const handleSelectPage = (page) => {
-    setPage(localStorage.setItem("paginaPrincipal" , page));
+    setPage(localStorage.setItem("paginaPrincipal", page));
   };
 
   useEffect(() => {
     if (user) {
       //console.log(user);
-      setPage(localStorage.getItem("paginaPrincipal"));
       setLoading(false);
     } else {
       router.push("/login");
     }
+    localStorage.getItem("primeiroTesteDeNivel") === "true"
+      ? setPage("refazer")
+      : setPage(localStorage.getItem("paginaPrincipal"));
+    if (
+      localStorage.getItem("testeDeNivelResposta1") === "acerto" &&
+      localStorage.getItem("testeDeNivelResposta2") === "acerto"
+    ) {
+      localStorage.setItem("nivelUsuario", "avançado");
+    } else if (
+      localStorage.getItem("testeDeNivelResposta1") === "erro" &&
+      localStorage.getItem("testeDeNivelResposta2") === "erro"
+    ) {
+      localStorage.setItem("nivelUsuario", "iniciante");
+    } else { 
+      localStorage.setItem("nivelUsuario", "intermediário");
+    }
   }, [router, user, page]);
 
   return (
-    <div className="flex w-full h-full text-text-900">
+    <div
+      className={`flex w-full h-full text-text-900 ${
+        page === "exercicios" ? "bg-[#d7efef]" : "bg-background-100"
+      }`}
+    >
       {loading ? (
         <img className="m-auto" src="gear.svg" alt="loading" />
       ) : (
