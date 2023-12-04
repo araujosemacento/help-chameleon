@@ -10,7 +10,7 @@ import CodeResult from '@/components/CodeResult';
 
 const Exercicio = () => {
   const router = useRouter();
-  const [code, setCode] = useState('function Pokebola(tipo, cor) { \n this.tipo = tipo; \n this.cor = cor; \n } \n \nvar pokebola = new Pokebola("pokeball", "vermelha"); \n \n');
+  const [code, setCode] = useState('function Pokebola(tipo, cor) { \n this.tipo = tipo; \n this.cor = cor; \n} \n \nvar pokebola = new Pokebola("pokeball", "vermelha"); \n \n');
   const [correctionResult, setCorrectionResult] = useState({ output: '', message: '' });
 
   const handleCodeChange = (newCode) => {
@@ -49,6 +49,21 @@ const Exercicio = () => {
             src="/pikachu.png"
             alt="Pikachu"
           />
+          <div className="absolute right-14 bottom-12">
+            <ExercicioDialog>
+              <ExercicioTrigger
+                onClick={handleCorrection}
+                className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all pointer-events-auto bg-accent-500 shadow-[0_4px_0_0_color(var--accent-700)] hover:bg-accent-400`}
+              >
+                <p className="text-lg">Verificar</p>
+                <ExercicioAnswer
+                  errors={correctionResult.output}
+                  caminho={"/exercicios/3"}
+                  mesmoCaminho={"/exercicios/2"}
+                />
+              </ExercicioTrigger>
+            </ExercicioDialog>
+          </div>
         </section>
         <section className="flex flex-col w-full h-3/4 md:w-3/4 md:h-full p-10 pt-2 justify-evenly text-justify">
           <p>
@@ -62,19 +77,6 @@ const Exercicio = () => {
           </p>
           <div className="flex flex-col w-full">
             <CodeEditor value={code} onChange={handleCodeChange} />
-            <ExercicioDialog>
-              <ExercicioTrigger
-                onClick={handleCorrection}
-                className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all`}
-              >
-                <p className="text-lg">Verificar</p>
-                <ExercicioAnswer
-                  errors={correctionResult.output}
-                  caminho={"/exercicios/3"}
-                  mesmoCaminho={"/exercicios/2"}
-                />
-              </ExercicioTrigger>
-            </ExercicioDialog>
           </div>
         </section>
       </main>

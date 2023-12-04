@@ -49,6 +49,21 @@ const Exercicio = () => {
             src="/bulbasaur.png"
             alt="Bulbasaur"
           />
+          <div className="absolute right-14 bottom-12">
+            <ExercicioDialog>
+              <ExercicioTrigger
+                onClick={handleCorrection}
+                className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all pointer-events-auto bg-accent-500 shadow-[0_4px_0_0_color(var--accent-700)] hover:bg-accent-400`}
+              >
+                <p className="text-lg">Verificar</p>
+                <ExercicioAnswer
+                  errors={correctionResult.output}
+                  caminho={"/"}
+                  mesmoCaminho={"/exercicios/3"}
+                />
+              </ExercicioTrigger>
+            </ExercicioDialog>
+          </div>
         </section>
         <section className="flex flex-col w-full h-3/4 md:w-3/4 md:h-full p-10 pt-2 justify-evenly text-justify">
           <p>
@@ -66,19 +81,6 @@ const Exercicio = () => {
           </p>
           <div className="flex flex-col w-full">
             <CodeEditor value={code} onChange={handleCodeChange} />
-            <ExercicioDialog>
-              <ExercicioTrigger
-                onClick={handleCorrection}
-                className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all`}
-              >
-                <p className="text-lg">Verificar</p>
-                <ExercicioAnswer
-                  errors={correctionResult.output}
-                  caminho = {"/"}
-                  mesmoCaminho = {"/exercicios/2"}
-                />
-              </ExercicioTrigger>
-            </ExercicioDialog>
           </div>
         </section>
       </main>
