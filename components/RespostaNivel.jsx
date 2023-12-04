@@ -3,6 +3,11 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useRouter } from "next/navigation";
+import {
+  MostrarNivel,
+  MostrarTrigger,
+  MostrarContent,
+} from "@/components/MostrarNivel";
 
 export const NivelDialog = DialogPrimitive.Root;
 
@@ -62,7 +67,17 @@ export const NivelAnswer = (props) => {
               onClick={() => {
                 localStorage.setItem("testeDeNivel", "recente");
                 localStorage.setItem("primeiroTesteDeNivel", "false");
-                router.push(props.caminho);
+                if (
+                  localStorage.getItem("testeDeNivelResposta1") === "acerto"
+                ) {
+                  localStorage.setItem("nivelUsuario", "avançado");
+                  console.log(localStorage.getItem("nivelUsuario"));
+                } else {
+                  localStorage.setItem("nivelUsuario", "intermediário");
+                  console.log(localStorage.getItem("nivelUsuario"));
+                }
+                localStorage.setItem("paginaPrincipal", "nivel");
+                router.push("/");
               }}
               className={`flex p-4 w-1/2 h-fit text-center font-bold active:translate-y-[5px] active:shadow-none  text-white justify-center items-center gap-2 outline-none rounded-2xl self-center transition-all bg-success-600 shadow-[0_5px_0_0_color(var(--success-500))] hover:bg-success-700`}
             >
@@ -79,9 +94,19 @@ export const NivelAnswer = (props) => {
               onClick={() => {
                 localStorage.setItem("testeDeNivel", "recente");
                 localStorage.setItem("primeiroTesteDeNivel", "false");
-                router.push(props.caminho);
+                if (
+                  localStorage.getItem("testeDeNivelResposta1") === "acerto"
+                ) {
+                  localStorage.setItem("nivelUsuario", "intermediário");
+                  console.log(localStorage.getItem("nivelUsuario"));
+                } else {
+                  localStorage.setItem("nivelUsuario", "iniciante");
+                  console.log(localStorage.getItem("nivelUsuario"));
+                }
+                localStorage.setItem("paginaPrincipal", "nivel");
+                router.push("/");
               }}
-              className={`flex p-4 w-1/2 h-fit text-center font-bold active:translate-y-[5px] active:shadow-none  text-white justify-center items-center gap-2 outline-none rounded-2xl self-center transition-all bg-fail-600 shadow-[0_5px_0_0_color(var(--fail-500))] hover:bg-fail-700`}
+              className={`flex p-4 w-1/2 h-fit text-center font-bold active:translate-y-[5px] active:shadow-none self-center text-white justify-center items-center gap-2 outline-none rounded-2xl transition-all bg-fail-600 shadow-[0_5px_0_0_color(var(--fail-500))] hover:bg-fail-700`}
             >
               Finalizar
             </button>

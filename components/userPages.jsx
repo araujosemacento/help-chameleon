@@ -225,6 +225,495 @@ export function Exercicios() {
             />
           </Pop>
         </div>
+
+        <div
+          style={{
+            transform: `translate(${larguraDaImagem * -0.16}px, ${
+              alturaDaImagem * 0.272
+            }px)`,
+          }}
+        >
+          <Pop>
+            <PopTrigger>
+              <button
+                className={`clicked flex rounded-[50%] w-[8vw] h-[5.5vw] shadow-[0_0.75vw_0_0_color(var(--accent-600))] md:active:shadow-none bg-accent-300 justify-center items-center transition-all active:translate-y-[0.75vw]`}
+              >
+                <svg
+                  width="65"
+                  height="45"
+                  className="w-[3.75vw] fill-accent-600"
+                  viewBox="0 0 75 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g>
+                    <path d="M27.2618 45L0 24.54L13.71 14.6937L27.4105 24.9765L61.4386 0L75 9.95541L27.2618 45Z" />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_733_114"
+                      x="0"
+                      y="0"
+                      width="75"
+                      height="49"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0.266667 0 0 0 0 0.533333 0 0 0 0 0.2 0 0 0 1 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_733_114"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </button>
+            </PopTrigger>
+            <PopContent
+              state={"habilitado"}
+              caminho={"/exercicios/3"}
+              titulo={"Exercício 3"}
+              descricao={
+                "Neste exercício você irá praticar a criação de objetos e atribuição de propriedades."
+              }
+            />
+          </Pop>
+        </div>
+
+        <div
+          style={{
+            transform: `translate(${larguraDaImagem * -0.05}px, ${
+              alturaDaImagem * 0.29
+            }px)`,
+          }}
+        >
+          <Pop>
+            <PopTrigger>
+              <button
+                className={`clicked flex rounded-[50%] w-[8vw] h-[5.5vw] shadow-[0_10px_0_0_color(var(--gray-600))] md:active:shadow-none bg-gray-300 justify-center items-center transition-all active:translate-y-[0.75vw]`}
+              >
+                <svg
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  className="dark:invert w-[40px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_i_666_667)">
+                    <path
+                      d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
+                      fill="#8B8B8B"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_666_667"
+                      x="0"
+                      y="0"
+                      width="45"
+                      height="54"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_666_667"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </button>
+            </PopTrigger>
+            <PopContent
+              state={"desabilitado"}
+              caminho={""}
+              titulo={"Exercício 4"}
+              descricao={
+                "Este exercício está bloqueado, conclua os anteriores para desbloqueá-lo."
+              }
+            />
+          </Pop>
+        </div>
+
+        <div
+          style={{
+            transform: `translate(${larguraDaImagem * 0.26}px, ${
+              alturaDaImagem * 0.367
+            }px)`,
+          }}
+        >
+          <Pop>
+            <PopTrigger>
+              <button
+                className={`clicked flex rounded-[50%] w-[8vw] h-[5.5vw] shadow-[0_10px_0_0_color(var(--gray-600))] md:active:shadow-none bg-gray-300 justify-center items-center transition-all active:translate-y-[0.75vw]`}
+              >
+                <svg
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  className="dark:invert w-[40px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_i_666_667)">
+                    <path
+                      d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
+                      fill="#8B8B8B"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_666_667"
+                      x="0"
+                      y="0"
+                      width="45"
+                      height="54"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_666_667"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </button>
+            </PopTrigger>
+            <PopContent
+              state={"desabilitado"}
+              caminho={""}
+              titulo={"Exercício 5"}
+              descricao={
+                "Este exercício está bloqueado, conclua os anteriores para desbloqueá-lo."
+              }
+            />
+          </Pop>
+        </div>
+
+        <div
+          style={{
+            transform: `translate(${larguraDaImagem * 0.263}px, ${
+              alturaDaImagem * 0.397
+            }px)`,
+          }}
+        >
+          <Pop>
+            <PopTrigger>
+              <button
+                className={`clicked flex rounded-[50%] w-[8vw] h-[5.5vw] shadow-[0_10px_0_0_color(var(--gray-600))] md:active:shadow-none bg-gray-300 justify-center items-center transition-all active:translate-y-[0.75vw]`}
+              >
+                <svg
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  className="dark:invert w-[40px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_i_666_667)">
+                    <path
+                      d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
+                      fill="#8B8B8B"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_666_667"
+                      x="0"
+                      y="0"
+                      width="45"
+                      height="54"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_666_667"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </button>
+            </PopTrigger>
+            <PopContent
+              state={"desabilitado"}
+              caminho={""}
+              titulo={"Exercício 6"}
+              descricao={
+                "Este exercício está bloqueado, conclua os anteriores para desbloqueá-lo."
+              }
+            />
+          </Pop>
+        </div>
+
+        <div
+          style={{
+            transform: `translate(${larguraDaImagem * 0.183}px, ${
+              alturaDaImagem * 0.42
+            }px)`,
+          }}
+        >
+          <Pop>
+            <PopTrigger>
+              <button
+                className={`clicked flex rounded-[50%] w-[8vw] h-[5.5vw] shadow-[0_10px_0_0_color(var(--gray-600))] md:active:shadow-none bg-gray-300 justify-center items-center transition-all active:translate-y-[0.75vw]`}
+              >
+                <svg
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  className="dark:invert w-[40px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_i_666_667)">
+                    <path
+                      d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
+                      fill="#8B8B8B"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_666_667"
+                      x="0"
+                      y="0"
+                      width="45"
+                      height="54"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_666_667"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </button>
+            </PopTrigger>
+            <PopContent
+              state={"desabilitado"}
+              caminho={""}
+              titulo={"Exercício 7"}
+              descricao={
+                "Este exercício está bloqueado, conclua os anteriores para desbloqueá-lo."
+              }
+            />
+          </Pop>
+        </div>
+
+        <div
+          style={{
+            transform: `translate(${larguraDaImagem * 0.06}px, ${
+              alturaDaImagem * 0.425
+            }px)`,
+          }}
+        >
+          <Pop>
+            <PopTrigger>
+              <button
+                className={`clicked flex rounded-[50%] w-[8vw] h-[5.5vw] shadow-[0_10px_0_0_color(var(--gray-600))] md:active:shadow-none bg-gray-300 justify-center items-center transition-all active:translate-y-[0.75vw]`}
+              >
+                <svg
+                  width="45"
+                  height="50"
+                  viewBox="0 0 45 50"
+                  className="dark:invert w-[40px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_i_666_667)">
+                    <path
+                      d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
+                      fill="#8B8B8B"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_i_666_667"
+                      x="0"
+                      y="0"
+                      width="45"
+                      height="54"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="8" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite
+                        in2="hardAlpha"
+                        operator="arithmetic"
+                        k2="-1"
+                        k3="1"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="shape"
+                        result="effect1_innerShadow_666_667"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </button>
+            </PopTrigger>
+            <PopContent
+              state={"desabilitado"}
+              caminho={""}
+              titulo={"Exercício 8"}
+              descricao={
+                "Este exercício está bloqueado, conclua os anteriores para desbloqueá-lo."
+              }
+            />
+          </Pop>
+        </div>
       </section>
     </div>
   );
@@ -240,26 +729,33 @@ export function Nivel({ redirect }) {
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
-      <section className="flex flex-col w-full h-full justify-evenly items-center p-10">
-        <div className="flex flex-row w-1/2 p-6 px-20 font-bold text-2xl justify-center bg-background-200 rounded-3xl my-6">
-          <p className="text-center uppercase">Iniciante</p>
-        </div>
-        <div className="flex flex-col p-6 w-3/4 font-semibold text-justify text-sm md:text-lg m-4">
-          <p>
-            O seu nível de conhecimento atual é Iniciante. Você pode refazer o
-            teste e subir de nível, tendo mais conquistas e desafios a espera.
-          </p>
-          <br />
-          <p>
-            Reserve um tempo para responder algumas perguntas que nos ajudarão a
-            avaliar o seu nível de conhecimento em programação!
-          </p>
-        </div>
+      <section className="flex flex-col relative w-full h-full justify-evenly items-center p-10">
+        {localStorage.getItem("nivelUsuario") === "iniciante" ? (
+          <img
+            src="/nivel/iniciante.png"
+            alt="level"
+            className="absolute h-full"
+          />
+        ) : localStorage.getItem("nivelUsuario") === "intermediário" ? (
+          <img
+            src="/nivel/intermediario.png"
+            alt="level"
+            className="absolute h-full"
+          />
+        ) : (
+          <img
+            src="/nivel/avancado.png"
+            alt="level"
+            className="absolute h-full"
+          />
+        )}
         <button
-          onClick={handleRedirect}
-          className="p-2 px-4 text-center font-bold text-lg bg-accent-500 rounded-2xl transition shadow-[0_5px_0_0_color(var(--accent-700))] hover:shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-400 active:translate-y-[5px] active:shadow-none text-white self-center"
+          onClick={() => {
+            router.push("/nivelamento/1");
+          }}
+          className={`flex p-4 absolute z-10 bottom-0 -translate-y-[100%] w-fit h-fit text-center font-bold active:translate-y-[calc(-100%+5px)] active:shadow-none  text-white justify-center items-center gap-2 outline-none rounded-2xl self-center transition-all bg-accent-400 shadow-[0_5px_0_0_color(var(--accent-600))] hover:bg-accent-500`}
         >
-          Refazer Teste de Nível
+          Refazer teste de nivel
         </button>
       </section>
     </div>
@@ -270,16 +766,16 @@ export function Desafios() {
   const { user } = useAuth();
 
   return (
-    <div className="flex flex-col h-full w-full overflow-auto">
+    <div className="flex flex-col h-full w-full overflow-auto p-10">
       <section className="flex flex-row w-full h-full justify-center mb-10 pb-10 md:px-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 w-1/2 sm:w-4/5 h-full lg:px-10 gap-16">
           <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-accent-300">
+            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-success-200 border-4 border-success-400">
               <div className="flex relative justify-center">
                 <svg
                   width="204"
                   height="204"
-                  className="w-28 h-28 fill-accent-700"
+                  className="w-28 h-28 fill-warning-500/90"
                   viewBox="0 0 204 204"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -333,32 +829,22 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_color(var(--accent-700))]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-300 shadow-[0_5px_0_0_color(var(--success-500))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">10 min</p>
+                <span className="material-symbols-outlined text-white ">
+                  hourglass
+                </span>
+                <p className="text-white font-bold">10 min</p>
               </div>
             </div>
           </div>
           <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-success-400">
+            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-secondary-200 border-4 border-secondary-400">
               <div className="flex relative justify-center">
                 <svg
                   width="204"
                   height="204"
-                  className="w-28 h-28 fill-amber-500"
+                  className="w-28 h-28 fill-accent-700"
                   viewBox="0 0 204 204"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -412,578 +898,87 @@ export function Desafios() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_color(var(--success-700))]">
+            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-secondary-300 shadow-[0_5px_0_0_color(var(--secondary-500))]">
               <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">10 min</p>
+                <span className="material-symbols-outlined text-white ">
+                  hourglass
+                </span>
+                <p className="text-white font-bold">10 min</p>
               </div>
             </div>
           </div>
-          <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-success-400">
-              <div className="flex relative justify-center">
-                <svg
-                  width="204"
-                  height="204"
-                  className="w-28 h-28 fill-amber-500"
-                  viewBox="0 0 204 204"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_i_576_671)">
-                    <path d="M45.75 203.25V180.75H90.75V145.875C81.5625 143.813 73.3594 139.922 66.1406 134.203C58.9219 128.484 53.625 121.312 50.25 112.687C36.1875 111 24.4219 104.859 14.9531 94.2656C5.48438 83.6719 0.75 71.25 0.75 57V45.75C0.75 39.5625 2.95313 34.2656 7.35938 29.8594C11.7656 25.4531 17.0625 23.25 23.25 23.25H45.75V0.75H158.25V23.25H180.75C186.938 23.25 192.234 25.4531 196.641 29.8594C201.047 34.2656 203.25 39.5625 203.25 45.75V57C203.25 71.25 198.516 83.6719 189.047 94.2656C179.578 104.859 167.813 111 153.75 112.687C150.375 121.312 145.078 128.484 137.859 134.203C130.641 139.922 122.437 143.813 113.25 145.875V180.75H158.25V203.25H45.75ZM45.75 88.5V45.75H23.25V57C23.25 64.125 25.3125 70.5469 29.4375 76.2656C33.5625 81.9844 39 86.0625 45.75 88.5ZM158.25 88.5C165 86.0625 170.437 81.9844 174.562 76.2656C178.687 70.5469 180.75 64.125 180.75 57V45.75H158.25V88.5Z" />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_i_576_671"
-                      x="0.75"
-                      y="0.75"
-                      width="202.5"
-                      height="202.5"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="4" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="arithmetic"
-                        k2="-1"
-                        k3="1"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="shape"
-                        result="effect1_innerShadow_576_671"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-                <p className="absolute text-white text-4xl self-center mb-8">
-                  3
-                </p>
+          {Array.from({ length: 7 }, (_, i) => i + 1).map((item, index) => (
+            <div className="flex flex-col w-full h-64" key={index}>
+              <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-gray-200 border-4 border-gray-400">
+                <div className="flex relative justify-center">
+                  <svg
+                    width="204"
+                    height="204"
+                    className="w-28 h-28 fill-gray-700"
+                    viewBox="0 0 204 204"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g filter="url(#filter0_i_576_671)">
+                      <path d="M45.75 203.25V180.75H90.75V145.875C81.5625 143.813 73.3594 139.922 66.1406 134.203C58.9219 128.484 53.625 121.312 50.25 112.687C36.1875 111 24.4219 104.859 14.9531 94.2656C5.48438 83.6719 0.75 71.25 0.75 57V45.75C0.75 39.5625 2.95313 34.2656 7.35938 29.8594C11.7656 25.4531 17.0625 23.25 23.25 23.25H45.75V0.75H158.25V23.25H180.75C186.938 23.25 192.234 25.4531 196.641 29.8594C201.047 34.2656 203.25 39.5625 203.25 45.75V57C203.25 71.25 198.516 83.6719 189.047 94.2656C179.578 104.859 167.813 111 153.75 112.687C150.375 121.312 145.078 128.484 137.859 134.203C130.641 139.922 122.437 143.813 113.25 145.875V180.75H158.25V203.25H45.75ZM45.75 88.5V45.75H23.25V57C23.25 64.125 25.3125 70.5469 29.4375 76.2656C33.5625 81.9844 39 86.0625 45.75 88.5ZM158.25 88.5C165 86.0625 170.437 81.9844 174.562 76.2656C178.687 70.5469 180.75 64.125 180.75 57V45.75H158.25V88.5Z" />
+                    </g>
+                    <defs>
+                      <filter
+                        id="filter0_i_576_671"
+                        x="0.75"
+                        y="0.75"
+                        width="202.5"
+                        height="202.5"
+                        filterUnits="userSpaceOnUse"
+                        colorInterpolationFilters="sRGB"
+                      >
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="BackgroundImageFix"
+                          result="shape"
+                        />
+                        <feColorMatrix
+                          in="SourceAlpha"
+                          type="matrix"
+                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha"
+                        />
+                        <feOffset dy="4" />
+                        <feComposite
+                          in2="hardAlpha"
+                          operator="arithmetic"
+                          k2="-1"
+                          k3="1"
+                        />
+                        <feColorMatrix
+                          type="matrix"
+                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in2="shape"
+                          result="effect1_innerShadow_576_671"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                  <p className="absolute text-white text-4xl self-center mb-8">
+                    {index + 3}
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-gray-300 shadow-[0_5px_0_0_color(var(--gray-500))]">
+                <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
+                  <span className="material-symbols-outlined text-white ">
+                    hourglass
+                  </span>
+                  <p className="text-white font-bold">10 min</p>
+                </div>
               </div>
             </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_color(var(--success-700))]">
-              <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">10 min</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-accent-300">
-              <div className="flex relative justify-center">
-                <svg
-                  width="204"
-                  height="204"
-                  className="w-28 h-28 fill-accent-700"
-                  viewBox="0 0 204 204"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_i_576_671)">
-                    <path d="M45.75 203.25V180.75H90.75V145.875C81.5625 143.813 73.3594 139.922 66.1406 134.203C58.9219 128.484 53.625 121.312 50.25 112.687C36.1875 111 24.4219 104.859 14.9531 94.2656C5.48438 83.6719 0.75 71.25 0.75 57V45.75C0.75 39.5625 2.95313 34.2656 7.35938 29.8594C11.7656 25.4531 17.0625 23.25 23.25 23.25H45.75V0.75H158.25V23.25H180.75C186.938 23.25 192.234 25.4531 196.641 29.8594C201.047 34.2656 203.25 39.5625 203.25 45.75V57C203.25 71.25 198.516 83.6719 189.047 94.2656C179.578 104.859 167.813 111 153.75 112.687C150.375 121.312 145.078 128.484 137.859 134.203C130.641 139.922 122.437 143.813 113.25 145.875V180.75H158.25V203.25H45.75ZM45.75 88.5V45.75H23.25V57C23.25 64.125 25.3125 70.5469 29.4375 76.2656C33.5625 81.9844 39 86.0625 45.75 88.5ZM158.25 88.5C165 86.0625 170.437 81.9844 174.562 76.2656C178.687 70.5469 180.75 64.125 180.75 57V45.75H158.25V88.5Z" />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_i_576_671"
-                      x="0.75"
-                      y="0.75"
-                      width="202.5"
-                      height="202.5"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="4" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="arithmetic"
-                        k2="-1"
-                        k3="1"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="shape"
-                        result="effect1_innerShadow_576_671"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-                <p className="absolute text-white text-4xl self-center mb-8">
-                  4
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_color(var(--accent-700))]">
-              <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">20 min</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-success-400">
-              <div className="flex relative justify-center">
-                <svg
-                  width="204"
-                  height="204"
-                  className="w-28 h-28 fill-amber-500"
-                  viewBox="0 0 204 204"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_i_576_671)">
-                    <path d="M45.75 203.25V180.75H90.75V145.875C81.5625 143.813 73.3594 139.922 66.1406 134.203C58.9219 128.484 53.625 121.312 50.25 112.687C36.1875 111 24.4219 104.859 14.9531 94.2656C5.48438 83.6719 0.75 71.25 0.75 57V45.75C0.75 39.5625 2.95313 34.2656 7.35938 29.8594C11.7656 25.4531 17.0625 23.25 23.25 23.25H45.75V0.75H158.25V23.25H180.75C186.938 23.25 192.234 25.4531 196.641 29.8594C201.047 34.2656 203.25 39.5625 203.25 45.75V57C203.25 71.25 198.516 83.6719 189.047 94.2656C179.578 104.859 167.813 111 153.75 112.687C150.375 121.312 145.078 128.484 137.859 134.203C130.641 139.922 122.437 143.813 113.25 145.875V180.75H158.25V203.25H45.75ZM45.75 88.5V45.75H23.25V57C23.25 64.125 25.3125 70.5469 29.4375 76.2656C33.5625 81.9844 39 86.0625 45.75 88.5ZM158.25 88.5C165 86.0625 170.437 81.9844 174.562 76.2656C178.687 70.5469 180.75 64.125 180.75 57V45.75H158.25V88.5Z" />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_i_576_671"
-                      x="0.75"
-                      y="0.75"
-                      width="202.5"
-                      height="202.5"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="4" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="arithmetic"
-                        k2="-1"
-                        k3="1"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="shape"
-                        result="effect1_innerShadow_576_671"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-                <p className="absolute text-white text-4xl self-center mb-8">
-                  5
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-success-500 shadow-[0_5px_0_0_color(var(--success-700))]">
-              <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">10 min</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-accent-300">
-              <div className="flex relative justify-center">
-                <svg
-                  width="204"
-                  height="204"
-                  className="w-28 h-28 fill-accent-700"
-                  viewBox="0 0 204 204"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_i_576_671)">
-                    <path d="M45.75 203.25V180.75H90.75V145.875C81.5625 143.813 73.3594 139.922 66.1406 134.203C58.9219 128.484 53.625 121.312 50.25 112.687C36.1875 111 24.4219 104.859 14.9531 94.2656C5.48438 83.6719 0.75 71.25 0.75 57V45.75C0.75 39.5625 2.95313 34.2656 7.35938 29.8594C11.7656 25.4531 17.0625 23.25 23.25 23.25H45.75V0.75H158.25V23.25H180.75C186.938 23.25 192.234 25.4531 196.641 29.8594C201.047 34.2656 203.25 39.5625 203.25 45.75V57C203.25 71.25 198.516 83.6719 189.047 94.2656C179.578 104.859 167.813 111 153.75 112.687C150.375 121.312 145.078 128.484 137.859 134.203C130.641 139.922 122.437 143.813 113.25 145.875V180.75H158.25V203.25H45.75ZM45.75 88.5V45.75H23.25V57C23.25 64.125 25.3125 70.5469 29.4375 76.2656C33.5625 81.9844 39 86.0625 45.75 88.5ZM158.25 88.5C165 86.0625 170.437 81.9844 174.562 76.2656C178.687 70.5469 180.75 64.125 180.75 57V45.75H158.25V88.5Z" />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_i_576_671"
-                      x="0.75"
-                      y="0.75"
-                      width="202.5"
-                      height="202.5"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="4" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="arithmetic"
-                        k2="-1"
-                        k3="1"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="shape"
-                        result="effect1_innerShadow_576_671"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-                <p className="absolute text-white text-4xl self-center mb-8">
-                  6
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-accent-500 shadow-[0_5px_0_0_color(var(--accent-700))]">
-              <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">10 min</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-text-200">
-              <div className="flex relative justify-center">
-                <svg
-                  width="204"
-                  height="204"
-                  className="w-28 h-28 fill-text-500"
-                  viewBox="0 0 204 204"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_i_576_671)">
-                    <path d="M45.75 203.25V180.75H90.75V145.875C81.5625 143.813 73.3594 139.922 66.1406 134.203C58.9219 128.484 53.625 121.312 50.25 112.687C36.1875 111 24.4219 104.859 14.9531 94.2656C5.48438 83.6719 0.75 71.25 0.75 57V45.75C0.75 39.5625 2.95313 34.2656 7.35938 29.8594C11.7656 25.4531 17.0625 23.25 23.25 23.25H45.75V0.75H158.25V23.25H180.75C186.938 23.25 192.234 25.4531 196.641 29.8594C201.047 34.2656 203.25 39.5625 203.25 45.75V57C203.25 71.25 198.516 83.6719 189.047 94.2656C179.578 104.859 167.813 111 153.75 112.687C150.375 121.312 145.078 128.484 137.859 134.203C130.641 139.922 122.437 143.813 113.25 145.875V180.75H158.25V203.25H45.75ZM45.75 88.5V45.75H23.25V57C23.25 64.125 25.3125 70.5469 29.4375 76.2656C33.5625 81.9844 39 86.0625 45.75 88.5ZM158.25 88.5C165 86.0625 170.437 81.9844 174.562 76.2656C178.687 70.5469 180.75 64.125 180.75 57V45.75H158.25V88.5Z" />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_i_576_671"
-                      x="0.75"
-                      y="0.75"
-                      width="202.5"
-                      height="202.5"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="4" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="arithmetic"
-                        k2="-1"
-                        k3="1"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="shape"
-                        result="effect1_innerShadow_576_671"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-                <p className="absolute text-white text-4xl self-center mb-8">
-                  7
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_color(var(--text-700))]">
-              <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">30 min</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-text-200">
-              <div className="flex relative justify-center">
-                <svg
-                  width="204"
-                  height="204"
-                  className="w-28 h-28 fill-text-500"
-                  viewBox="0 0 204 204"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_i_576_671)">
-                    <path d="M45.75 203.25V180.75H90.75V145.875C81.5625 143.813 73.3594 139.922 66.1406 134.203C58.9219 128.484 53.625 121.312 50.25 112.687C36.1875 111 24.4219 104.859 14.9531 94.2656C5.48438 83.6719 0.75 71.25 0.75 57V45.75C0.75 39.5625 2.95313 34.2656 7.35938 29.8594C11.7656 25.4531 17.0625 23.25 23.25 23.25H45.75V0.75H158.25V23.25H180.75C186.938 23.25 192.234 25.4531 196.641 29.8594C201.047 34.2656 203.25 39.5625 203.25 45.75V57C203.25 71.25 198.516 83.6719 189.047 94.2656C179.578 104.859 167.813 111 153.75 112.687C150.375 121.312 145.078 128.484 137.859 134.203C130.641 139.922 122.437 143.813 113.25 145.875V180.75H158.25V203.25H45.75ZM45.75 88.5V45.75H23.25V57C23.25 64.125 25.3125 70.5469 29.4375 76.2656C33.5625 81.9844 39 86.0625 45.75 88.5ZM158.25 88.5C165 86.0625 170.437 81.9844 174.562 76.2656C178.687 70.5469 180.75 64.125 180.75 57V45.75H158.25V88.5Z" />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_i_576_671"
-                      x="0.75"
-                      y="0.75"
-                      width="202.5"
-                      height="202.5"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="4" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="arithmetic"
-                        k2="-1"
-                        k3="1"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="shape"
-                        result="effect1_innerShadow_576_671"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-                <p className="absolute text-white text-4xl self-center mb-8">
-                  8
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_color(var(--text-700))]">
-              <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">30 min</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col w-full h-64">
-            <div className="flex flex-col h-4/5 place-content-center rounded-t-2xl bg-text-200">
-              <div className="flex relative justify-center">
-                <svg
-                  width="204"
-                  height="204"
-                  className="w-28 h-28 fill-text-500"
-                  viewBox="0 0 204 204"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_i_576_671)">
-                    <path d="M45.75 203.25V180.75H90.75V145.875C81.5625 143.813 73.3594 139.922 66.1406 134.203C58.9219 128.484 53.625 121.312 50.25 112.687C36.1875 111 24.4219 104.859 14.9531 94.2656C5.48438 83.6719 0.75 71.25 0.75 57V45.75C0.75 39.5625 2.95313 34.2656 7.35938 29.8594C11.7656 25.4531 17.0625 23.25 23.25 23.25H45.75V0.75H158.25V23.25H180.75C186.938 23.25 192.234 25.4531 196.641 29.8594C201.047 34.2656 203.25 39.5625 203.25 45.75V57C203.25 71.25 198.516 83.6719 189.047 94.2656C179.578 104.859 167.813 111 153.75 112.687C150.375 121.312 145.078 128.484 137.859 134.203C130.641 139.922 122.437 143.813 113.25 145.875V180.75H158.25V203.25H45.75ZM45.75 88.5V45.75H23.25V57C23.25 64.125 25.3125 70.5469 29.4375 76.2656C33.5625 81.9844 39 86.0625 45.75 88.5ZM158.25 88.5C165 86.0625 170.437 81.9844 174.562 76.2656C178.687 70.5469 180.75 64.125 180.75 57V45.75H158.25V88.5Z" />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_i_576_671"
-                      x="0.75"
-                      y="0.75"
-                      width="202.5"
-                      height="202.5"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="4" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="arithmetic"
-                        k2="-1"
-                        k3="1"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="shape"
-                        result="effect1_innerShadow_576_671"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-                <p className="absolute text-white text-4xl self-center mb-8">
-                  9
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row h-1/5 place-content-center rounded-b-2xl bg-text-500 shadow-[0_5px_0_0_color(var(--text-700))]">
-              <div className="flex flex-row w-full gap-2 justify-center items-center p-2">
-                <svg
-                  width="33"
-                  height="42"
-                  className="w-5 h-5"
-                  viewBox="0 0 33 42"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.8065 37.8928H24.7913V31.6504C24.7913 29.2823 23.9679 27.2832 22.3212 25.6531C20.6744 24.023 18.667 23.208 16.2989 23.208C13.9308 23.208 11.9234 24.023 10.2766 25.6531C8.62987 27.2832 7.8065 29.2823 7.8065 31.6504V37.8928ZM16.2989 18.7928C18.667 18.7928 20.6744 17.9694 22.3212 16.3227C23.9679 14.6759 24.7913 12.6685 24.7913 10.3004V4.10795H7.8065V10.3004C7.8065 12.6685 8.62987 14.6759 10.2766 16.3227C11.9234 17.9694 13.9308 18.7928 16.2989 18.7928ZM0 41.2993V37.8928H4.4V31.6504C4.4 29.3076 5.04872 27.1735 6.34615 25.2482C7.64362 23.3228 9.36845 21.9069 11.5206 21.0004C9.36845 20.0605 7.64362 18.6279 6.34615 16.7025C5.04872 14.7772 4.4 12.6431 4.4 10.3004V4.10795H0V0.689453H32.6098V4.10795H28.2098V10.3004C28.2098 12.6431 27.5611 14.7772 26.2636 16.7025C24.9661 18.6279 23.2413 20.0605 21.0891 21.0004C23.2413 21.9069 24.9661 23.3228 26.2636 25.2482C27.5611 27.1735 28.2098 29.3076 28.2098 31.6504V37.8928H32.6098V41.2993H0Z"
-                    fill="white"
-                  />
-                </svg>
-                <p className="text-white">30 min</p>
-              </div>
-            </div>
-          </div>
+          ))}
+
           <footer className="h-[1px]"></footer>
         </div>
       </section>
@@ -1003,7 +998,7 @@ export function Ranking() {
     <div className="flex flex-col h-full w-full overflow-auto">
       <section className="flex flex-row w-full h-full justify-center items-start">
         <div className="flex flex-col w-3/4 gap-10">
-          <div className="flex flex-row w-full px-8 items-center justify-end text-sm md:text-base text-text-900 font-bold">
+          <div className="flex flex-row mt-12 w-full px-8 items-center justify-end text-sm md:text-base text-text-900 font-bold">
             Ligar modo ranqueado
             <Tooltip
               content="Ligue o modo ranqueado para competir com os outros alunos"
@@ -1013,8 +1008,9 @@ export function Ranking() {
               <img
                 src="https://api.iconify.design/material-symbols:help-outline-rounded.svg?color=%23ffffff"
                 alt="info"
-                className="w-5 h-5 mx-2 invert dark:invert-0"
+                className="w-6 h- mx-2 invert dark:invert-0"
               />
+              
             </Tooltip>
             <Switch
               ripple={false}
@@ -1047,10 +1043,10 @@ export function Ranking() {
                     className={`flex flex-col gap-4 md:flex-row w-full p-4 rounded-3xl font-semibold justify-between text-lg transition-all duration-500 border-2 ${
                       index === 6
                         ? "bg-accent-200 border-accent-500 text-accent-500 hover:bg-primary-100"
-                        : "border-transparent hover:bg-background-200"
+                        : "border-transparent"
                     }`}
                   >
-                    <div className="flex flex-row h-full gap-6 items-center">
+                    <div className="flex flex-row h-full gap-6 items-center text-3xl">
                       <span
                         className={`text-2xl px-2 ${
                           index === 0 ? "mx-1" : "mx-2"
@@ -1070,10 +1066,8 @@ export function Ranking() {
                       {index === 6 ? user?.displayName : "Nome Sobrenome"}
                     </div>
                     <div
-                      className={`flex flex-row h-full self-center w-[75%] md:w-auto justify-center md:justify-normal border-2 border-text-900 md:border-transparent md:bg-transparent md:hover:bg-transparent rounded-full ${
-                        index === 6
-                          ? "bg-primary-200 hover:bg-primary-300"
-                          : "bg-background-200 hover:bg-background-400"
+                      className={`flex flex-row h-full self-center w-[75%] md:w-auto justify-center md:justify-normal border-2 border-text-900 md:border-transparent md:bg-transparent rounded-full text-3xl ${
+                        index === 6 ? "bg-primary-200" : "bg-background-200"
                       } tansition-all duration-500`}
                     >
                       {index * 50 + 550}XP
@@ -1103,7 +1097,7 @@ export function Perfil() {
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
       <section className="flex flex-col-reverse lg:flex-row w-full items-center justify-between p-8 px-16">
-        <div className="flex flex-col gap-3 text-justify w-full md:w-[40vw]">
+        <div className="flex flex-col gap-3 text-justify w-full md:w-[20vw]">
           <h2
             contentEditable={editarUsuario}
             className="relative text-3xl font-bold mb-1"
@@ -1116,7 +1110,7 @@ export function Perfil() {
               edit
             </span>
           </h2>
-          <p className="font-semibold text-lg">Nível: Iniciante</p>
+          <p className="font-semibold text-lg">Nível: <span className="text-accent-500 font-bold uppercase">{localStorage.getItem("nivelUsuario")}</span></p>
           <p className="text-text-900 font-semibold text-lg">
             Pontuação: 850XP
           </p>
@@ -1127,7 +1121,7 @@ export function Perfil() {
             {localStorage.getItem("biografia")}
             <span
               onClick={() => setEditarBiografia(!editarBiografia)}
-              className="material-symbols-outlined absolute right-0 top-0 scale-75 aspect-square text-text-900 hover:text-accent-500 rounded-lg p-1 active:bg-accent-700/25 text-[36px]"
+              className="material-symbols-outlined absolute right-0 top-0 scale-75 aspect-square text-text-900 hover:text-accent-500 rounded-lg p-1 active:bg-accent-700/25 text-[36px] mt-[-10px]"
             >
               edit
             </span>

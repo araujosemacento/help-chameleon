@@ -29,7 +29,11 @@ export const SairContent = (props) => {
             <button
               onClick={() => {
                 localStorage.setItem("paginaPrincipal", props.caminho);
-                window.location.reload(false);
+                if (props.exercicio) {
+                  router.push("/");
+                } else {
+                  window.location.reload(false);
+                }
               }}
               className={`flex p-4 w-1/2 h-fit text-center font-bold active:translate-y-[5px] active:shadow-none  text-white justify-center items-center gap-2 outline-none rounded-2xl self-center transition-all bg-accent-600 shadow-[0_5px_0_0_color(var(--accent-500))] hover:bg-accent-700`}
             >

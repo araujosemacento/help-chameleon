@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import CodeEditor from "@/components/CodeEditor";
 import CodeResult from "@/components/CodeResult";
 import Questao1 from "@/lib/Questao1";
+import { Sair, SairTrigger, SairContent } from "@/components/Sair";
 import {
   ExercicioDialog,
   ExercicioTrigger,
@@ -38,6 +39,16 @@ const Exercicio = () => {
       <div className="flex flex-row w-full p-10 pb-2 items-center gap-2">
         <img src="/magomeleon_2.png" className="w-10" alt="magomeleon_2" />
         <h2 className="text-xl text-accent-600">Exercício 1</h2>
+        <Sair>
+          <SairTrigger>
+            <button className="flex w-fit-h-fit">
+              <span className="material-symbols-outlined aspect-square text-text-900 hover:text-accent-500 rounded-lg p-1 active:bg-accent-700/25 text-[36px]">
+                close
+              </span>
+            </button>
+          </SairTrigger>
+          <SairContent caminho={"exercicios"} exercicio={true} />
+        </Sair>
       </div>
       <main className="flex flex-col md:flex-row-reverse w-full h-full p-4">
         <section className="flex flex-col w-full h-1/4 md:w-2/4 md:h-full place-content-center p-4 md: items-center md:mr-24">
@@ -56,6 +67,7 @@ const Exercicio = () => {
                 <ExercicioAnswer
                   errors={correctionResult.output}
                   caminho={"/exercicios/2"}
+                  mesmoCaminho={"/exercicios/1"}
                 />
               </ExercicioTrigger>
             </ExercicioDialog>
@@ -71,7 +83,7 @@ const Exercicio = () => {
           </p>
           <p className="font-bold">
             Em JavaScript, crie e instancie o objeto Pokébola (de acordo com a
-            imagem ao lado) que terá o tipo e a cor como propriedade.
+            imagem ao lado), usando uma função construtora, que terá o tipo e a cor como propriedade.
           </p>
           <div className="flex flex-col w-full">
             <CodeEditor value={code} onChange={handleCodeChange} />

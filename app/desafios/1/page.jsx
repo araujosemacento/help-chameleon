@@ -62,7 +62,7 @@ const Desafio = () => {
               className={`flex flex-col h-fit w-fit md:flex-row items-center justify-center md:justify-normal aspect-square m-1 rounded-xl md:aspect-auto md:p-2 md:text-lg md:px-6 md:mx-6 hover:bg-accent-200 border-2`}
             >
               <p className="text-lg">Verificar</p>
-              <ExercicioAnswer errors={correctionResult.output} caminho={"/desafios/2"} />
+              <ExercicioAnswer errors={correctionResult.output} caminho={"/desafios/2"} mesmoCaminho={"/desafios/1"} />
             </ExercicioTrigger>
           </ExercicioDialog>
           {/* <button

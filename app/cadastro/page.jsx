@@ -41,7 +41,7 @@ export default function Cadastro() {
   }, [router, user]);
 
   return (
-    <div className="flex w-full h-full text-text-900">
+    <div className="flex w-full h-full text-text-900 bg-background-50">
       {loading ? (
         <img className="m-auto" src="gear.svg" alt="loading" />
       ) : (
@@ -49,11 +49,11 @@ export default function Cadastro() {
           <nav className="flex flex-row w-full md:justify-between justify-center">
             <div className="flex flex-row gap-4 items-center">
               <img
-                src="hameleon.svg"
+                src="/magomeleon_2.png"
                 alt="logo"
-                className="w-10 invert dark:invert-0"
+                className="w-10"
               />
-              <h2 className="text-2xl">ProgQuest</h2>
+              <h2 className="text-2xl text-accent-500">ProgQuest</h2>
             </div>
             {!isMobile && (
               <button
@@ -64,8 +64,9 @@ export default function Cadastro() {
               </button>
             )}
           </nav>
-          <main className="flex w-full h-full justify-center items-center">
-            <section className="flex flex-col w-[90%] md:w-[60%] lg:w-[35%] place-content-center border border-background-500 rounded-3xl shadow-[0_0_10px_1px_color(var(--background-200))]">
+          <main className="flex flex-col w-full h-full justify-center items-center">
+          <img src="/login.png" alt="" className="w-20 mt-[-10px] mb-[-5px]"/>
+            <section className="flex flex-col w-[90%] md:w-[60%] lg:w-[35%] place-content-center border border-background-500 rounded-3xl">
               <form
                 onSubmit={handleSubmit}
                 className="flex flex-col w-full h-full gap-4 p-6"
@@ -76,21 +77,21 @@ export default function Cadastro() {
                   ref={nameRef}
                   type="text"
                   placeholder="Nome de Usário"
-                  className="px-4 py-2 bg-background-300 rounded-3xl outline-none placeholder-text-700"
+                  className="px-4 py-2 bg-gray-100 placeholder-gray-300 rounded-3xl outline-none"
                 />
                 <input
                   required
                   ref={emailRef}
                   type="email"
                   placeholder="E-mail"
-                  className="px-4 py-2 bg-background-300 rounded-3xl outline-none placeholder-text-700"
+                  className="px-4 py-2 bg-gray-100 placeholder-gray-300 rounded-3xl outline-none"
                 />
                 <input
                   required
                   ref={passwordRef}
                   type="password"
                   placeholder="Senha"
-                  className="px-4 py-2 bg-background-300 rounded-3xl outline-none placeholder-text-700"
+                  className="px-4 py-2 bg-gray-100 placeholder-gray-300 rounded-3xl outline-none"
                 />
                 <div className="flex flex-row w-full items-center">
                   <Checkbox required color="deep-purple" />

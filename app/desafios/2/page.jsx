@@ -66,7 +66,7 @@ const Desafio = () => {
                 className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all`}
               >
                 <p className="text-lg">Verificar</p>
-                <ExercicioAnswer errors={correctionResult.output} caminho={"/"} />
+                <ExercicioAnswer errors={correctionResult.output} caminho={"/"} mesmoCaminho = {"/exercicios/2"} />
               </ExercicioTrigger>
             </ExercicioDialog>
           </div>
