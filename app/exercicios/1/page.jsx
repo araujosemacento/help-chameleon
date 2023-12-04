@@ -1,16 +1,24 @@
-"use client"
+/* eslint-disable @next/next/no-img-element */
+"use client";
 
-import { React, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import CodeEditor from '@/components/CodeEditor';
-import CodeResult from '@/components/CodeResult';
-import Questao1 from '@/lib/Questao1';
-import { ExercicioDialog, ExercicioTrigger, ExercicioAnswer } from "@/components/RespostaExercicio";
+import { React, useState } from "react";
+import { useRouter } from "next/navigation";
+import CodeEditor from "@/components/CodeEditor";
+import CodeResult from "@/components/CodeResult";
+import Questao1 from "@/lib/Questao1";
+import {
+  ExercicioDialog,
+  ExercicioTrigger,
+  ExercicioAnswer,
+} from "@/components/RespostaExercicio";
 
 const Exercicio = () => {
   const router = useRouter();
-  const [code, setCode] = useState('');
-  const [correctionResult, setCorrectionResult] = useState({ output: '', message: '' });
+  const [code, setCode] = useState("");
+  const [correctionResult, setCorrectionResult] = useState({
+    output: "",
+    message: "",
+  });
 
   const handleCodeChange = (newCode) => {
     setCode(newCode);
@@ -22,7 +30,7 @@ const Exercicio = () => {
   };
 
   const goToHomePage = () => {
-    router.push('/');
+    router.push("/");
   };
 
   return (
@@ -38,25 +46,35 @@ const Exercicio = () => {
             src="/pokebola.png"
             alt="Pokebola"
           />
-        </section>
-        <section className="flex flex-col w-full h-3/4 md:w-3/4 md:h-full p-10 pt-2 justify-evenly text-justify">
-          <p>
-            Pokébolas são itens utilizados por treinadores pokémon para capturar e armazenar pokémons. Elas variam de tipo, cada tipo possui um padrão de cor e chances diferentes de captura, na imagem, temos uma pokébola comum, pokébolas comuns têm uma chance alta de capturar pokémons comuns e de baixo nível.
-          </p>
-          <p className="font-bold">
-            Em JavaScript, crie e instancie o objeto Pokébola (de acordo com a imagem ao lado) que terá o tipo e a cor como propriedade.
-          </p>
-          <div className="flex flex-col w-full">
-            <CodeEditor value={code} onChange={handleCodeChange} />
+          <div className="absolute right-14 bottom-12">
             <ExercicioDialog>
               <ExercicioTrigger
                 onClick={handleCorrection}
                 className={`flex p-2 px-4 h-fit text-center font-bold text-sm active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-end translate-x-10 outline-none rounded-2xl transition-all pointer-events-auto bg-accent-500 shadow-[0_4px_0_0_color(var--accent-700)] hover:bg-accent-400`}
               >
                 <p className="text-lg">Verificar</p>
-                <ExercicioAnswer errors={correctionResult.output} caminho={"/exercicios/2"} />
+                <ExercicioAnswer
+                  errors={correctionResult.output}
+                  caminho={"/exercicios/2"}
+                />
               </ExercicioTrigger>
             </ExercicioDialog>
+          </div>
+        </section>
+        <section className="flex flex-col w-full h-3/4 md:w-3/4 md:h-full p-10 pt-2 justify-evenly text-justify">
+          <p>
+            Pokébolas são itens utilizados por treinadores pokémon para capturar
+            e armazenar pokémons. Elas variam de tipo, cada tipo possui um
+            padrão de cor e chances diferentes de captura, na imagem, temos uma
+            pokébola comum, pokébolas comuns têm uma chance alta de capturar
+            pokémons comuns e de baixo nível.
+          </p>
+          <p className="font-bold">
+            Em JavaScript, crie e instancie o objeto Pokébola (de acordo com a
+            imagem ao lado) que terá o tipo e a cor como propriedade.
+          </p>
+          <div className="flex flex-col w-full">
+            <CodeEditor value={code} onChange={handleCodeChange} />
             {/* <button
               className="flex p-2 px-4 h-fit text-center font-bold text-sm bg-accent-500 rounded-2xl transition shadow-[0_4px_0_0_color(var(--accent-700))] hover:bg-accent-400 active:translate-y-[4px] active:shadow-none  text-white justify-center items-center gap-2 self-start translate-x-10"
               onClick={handleCorrection}
@@ -69,6 +87,6 @@ const Exercicio = () => {
       </main>
     </div>
   );
-}
+};
 
 export default Exercicio;

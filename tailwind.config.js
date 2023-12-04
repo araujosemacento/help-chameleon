@@ -37,14 +37,18 @@ module.exports = withMT({
         },
       },
       keyframes: {
-        wick: {
-          from: {
-            width: "100%",
-          },
-          to: {
-            width: "0%",
-          },
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
         },
+        fadeOut: {
+          from: { opacity: 1 },
+          to: { opacity: 0 },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 150ms ease-in',
+        fadeOut: 'fadeOut 150ms ease-out',
       },
       colors: {
         fail: {

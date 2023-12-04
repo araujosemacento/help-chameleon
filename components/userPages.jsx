@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { useMobile } from "@/context/MobileContext";
 import { Tooltip, Switch } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
 import { Sair, SairTrigger, SairContent } from "@/components/Sair";
@@ -10,265 +11,79 @@ import { updateProfile } from "firebase/auth";
 
 export function Exercicios() {
   const { user } = useAuth();
+  const { windowSize } = useMobile();
 
   const [buttonClicked, setButtonClicked] = useState([]);
 
-  const handleButtonClick = (state, index) => {
-    const newButtonClicked = [...buttonClicked];
-    newButtonClicked[index] = state;
-    setButtonClicked(newButtonClicked);
-  };
+  const imagemRef = useRef();
+  const [larguraDaImagem, setLarguraDaImagem] = useState(null);
+  const [alturaDaImagem, setAlturaDaImagem] = useState(null);
 
   useEffect(() => {
-    handleButtonClick(false, 0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const handleImageLoad = () => {
+      const currentImageRef = imagemRef.current;
+
+      // Verifica se a imagem carregou corretamente
+      if (currentImageRef && currentImageRef.complete) {
+        setLarguraDaImagem(currentImageRef.width);
+        setAlturaDaImagem(currentImageRef.height);
+      }
+    };
+
+    // Adiciona um ouvinte de evento para detectar quando a imagem é carregada
+    const currentImageRef = imagemRef.current;
+    if (currentImageRef) {
+      currentImageRef.addEventListener("load", handleImageLoad);
+      window.addEventListener("resize", handleImageLoad);
+
+      // Remove o ouvinte de evento quando o componente é desmontado
+      return () => {
+        currentImageRef.removeEventListener("load", handleImageLoad);
+        window.removeEventListener("resize", handleImageLoad);
+      };
+    }
+  }, [windowSize]);
+
+  //console.log(larguraDaImagem);
+  //console.log(alturaDaImagem);
+
+  // const handleButtonClick = (state, index) => {
+  //   const newButtonClicked = [...buttonClicked];
+  //   newButtonClicked[index] = state;
+  //   setButtonClicked(newButtonClicked);
+  // };
+
+  // useEffect(() => {
+  //   handleButtonClick(false, 0);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
-      <section className="reltive flex flex-col relative w-full h-full justify-start items-center gap-8">
+      <section className="flex flex-col relative w-full h-full justify-start items-center gap-8">
         <img
+          ref={imagemRef}
           src="/background_exercicios.jpg"
           alt="background"
           className="absolute w-full"
         />
-        {Array.from({ length: 4 }, (_, i) => i).map((_, index) => (
-          <div key={index} className="translate-y-[39vw]">
-            <Pop>
-              <PopTrigger asChild>
-                <button
-                  className={`clicked flex rounded-[50%] w-[100px] h-[80px] ${
-                    index === 0
-                      ? "shadow-[0_10px_0_0_color(var(--success-500))] md:active:shadow-none bg-success-400"
-                      : index === 1
-                      ? "shadow-[0_10px_0_0_color(var(--accent-600))] md:active:shadow-none bg-accent-300"
-                      : "shadow-[0_10px_0_0_color(var(--text-500))] md:active:shadow-none bg-background-200"
-                  } transition-all justify-center items-center`}
-                  onMouseDown={() => handleButtonClick(true, index)}
-                  onMouseUp={() => handleButtonClick(false, index)}
-                  onTouchStart={() => handleButtonClick(true, index)}
-                  onTouchEnd={() => handleButtonClick(false, index)}
-                  style={{
-                    transform: `translateX(${parseInt(
-                      -20 * Math.sin(index / 1.25) - 15
-                    )}vw) ${
-                      buttonClicked[index]
-                        ? "translateY(10px)"
-                        : "translateY(0px)"
-                    }`,
-                  }}
-                >
-                  {index === 0 ? (
-                    <svg
-                      width="75"
-                      height="45"
-                      className="w-[50px] fill-success-500"
-                      viewBox="0 0 75 45"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g filter="url(#filter0_i_733_114)">
-                        <path d="M27.2618 45L0 24.54L13.71 14.6937L27.4105 24.9765L61.4386 0L75 9.95541L27.2618 45Z" />
-                      </g>
-                      <defs>
-                        <filter
-                          id="filter0_i_733_114"
-                          x="0"
-                          y="0"
-                          width="75"
-                          height="49"
-                          filterUnits="userSpaceOnUse"
-                          colorInterpolationFilters="sRGB"
-                        >
-                          <feFlood
-                            floodOpacity="0"
-                            result="BackgroundImageFix"
-                          />
-                          <feBlend
-                            mode="normal"
-                            in="SourceGraphic"
-                            in2="BackgroundImageFix"
-                            result="shape"
-                          />
-                          <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                          />
-                          <feOffset dy="8" />
-                          <feGaussianBlur stdDeviation="2" />
-                          <feComposite
-                            in2="hardAlpha"
-                            operator="arithmetic"
-                            k2="-1"
-                            k3="1"
-                          />
-                          <feColorMatrix
-                            type="matrix"
-                            values="0 0 0 0 0.266667 0 0 0 0 0.533333 0 0 0 0 0.2 0 0 0 1 0"
-                          />
-                          <feBlend
-                            mode="normal"
-                            in2="shape"
-                            result="effect1_innerShadow_733_114"
-                          />
-                        </filter>
-                      </defs>
-                    </svg>
-                  ) : index === 1 ? (
-                    <svg
-                      width="59"
-                      height="47"
-                      className="w-[50px] fill-accent-600"
-                      viewBox="0 0 59 47"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g filter="url(#filter0_i_733_669)">
-                        <path d="M27.1838 1.70294C28.0281 -0.376073 30.9719 -0.376068 31.8162 1.70294L37.286 15.1702C37.6688 16.1129 38.5848 16.7295 39.6022 16.7295H55.8885C58.4424 16.7295 59.3528 20.1075 57.1448 21.3909L44.9995 28.4501C43.9229 29.0759 43.471 30.3986 43.9396 31.5523L48.7887 43.4916C49.6856 45.7 47.2769 47.7915 45.2161 46.5937L30.7563 38.1892C29.9796 37.7377 29.0204 37.7377 28.2437 38.1892L13.7839 46.5937C11.7231 47.7915 9.31437 45.7 10.2113 43.4916L15.0604 31.5523C15.529 30.3986 15.0771 29.0759 14.0005 28.4501L1.85525 21.3909C-0.352778 20.1075 0.55763 16.7295 3.11154 16.7295H19.3978C20.4152 16.7295 21.3312 16.1129 21.714 15.1702L27.1838 1.70294Z" />
-                      </g>
-                      <defs>
-                        <filter
-                          id="filter0_i_733_669"
-                          x="0.607422"
-                          y="0.143555"
-                          width="57.7852"
-                          height="50.7998"
-                          filterUnits="userSpaceOnUse"
-                          colorInterpolationFilters="sRGB"
-                        >
-                          <feFlood
-                            floodOpacity="0"
-                            result="BackgroundImageFix"
-                          />
-                          <feBlend
-                            mode="normal"
-                            in="SourceGraphic"
-                            in2="BackgroundImageFix"
-                            result="shape"
-                          />
-                          <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                          />
-                          <feOffset dy="8" />
-                          <feGaussianBlur stdDeviation="2" />
-                          <feComposite
-                            in2="hardAlpha"
-                            operator="arithmetic"
-                            k2="-1"
-                            k3="1"
-                          />
-                          <feColorMatrix
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                          />
-                          <feBlend
-                            mode="normal"
-                            in2="shape"
-                            result="effect1_innerShadow_733_669"
-                          />
-                        </filter>
-                      </defs>
-                    </svg>
-                  ) : (
-                    <svg
-                      width="45"
-                      height="50"
-                      viewBox="0 0 45 50"
-                      className="dark:invert w-[40px]"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g filter="url(#filter0_i_666_667)">
-                        <path
-                          d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
-                          fill="#8B8B8B"
-                        />
-                      </g>
-                      <defs>
-                        <filter
-                          id="filter0_i_666_667"
-                          x="0"
-                          y="0"
-                          width="45"
-                          height="54"
-                          filterUnits="userSpaceOnUse"
-                          colorInterpolationFilters="sRGB"
-                        >
-                          <feFlood
-                            floodOpacity="0"
-                            result="BackgroundImageFix"
-                          />
-                          <feBlend
-                            mode="normal"
-                            in="SourceGraphic"
-                            in2="BackgroundImageFix"
-                            result="shape"
-                          />
-                          <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                          />
-                          <feOffset dy="8" />
-                          <feGaussianBlur stdDeviation="2" />
-                          <feComposite
-                            in2="hardAlpha"
-                            operator="arithmetic"
-                            k2="-1"
-                            k3="1"
-                          />
-                          <feColorMatrix
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                          />
-                          <feBlend
-                            mode="normal"
-                            in2="shape"
-                            result="effect1_innerShadow_666_667"
-                          />
-                        </filter>
-                      </defs>
-                    </svg>
-                  )}
-                </button>
-              </PopTrigger>
-              <PopContent asChild />
-            </Pop>
-          </div>
-        ))}
-        {Array.from({ length: 4 }, (_, i) => i).map((_, index) => (
-          <div key={index} className="translate-y-[50vw]">
-            <button
-              className={`clicked flex rounded-[50%] w-[100px] h-[80px] ${
-                index === 0
-                  ? "shadow-[0_10px_0_0_color(var(--success-500))] md:active:shadow-none bg-success-400"
-                  : index === 1
-                  ? "shadow-[0_10px_0_0_color(var(--accent-600))] md:active:shadow-none bg-accent-300"
-                  : "shadow-[0_10px_0_0_color(var(--text-500))] md:active:shadow-none bg-background-200"
-              } transition-all justify-center items-center`}
-              onMouseDown={() => handleButtonClick(true, index)}
-              onMouseUp={() => handleButtonClick(false, index)}
-              onTouchStart={() => handleButtonClick(true, index)}
-              onTouchEnd={() => handleButtonClick(false, index)}
-              style={{
-                transform: `translateX(${parseInt(
-                  -150 * Math.sin(index / 1.25) * (index % 2 === 0 ? 1 : 0.75)
-                )}%) ${
-                  buttonClicked[index] ? "translateY(10px)" : "translateY(0px)"
-                }`,
-              }}
-            >
-              {index === 0 ? (
+
+        <div
+          style={{
+            transform: `translate(${larguraDaImagem * -0.175}px, ${
+              alturaDaImagem * 0.23
+            }px)`,
+          }}
+        >
+          <Pop>
+            <PopTrigger>
+              <button
+                className={`clicked flex rounded-[50%] w-[8vw] h-[5.5vw] shadow-[0_0.75vw_0_0_color(var(--success-600))] md:active:shadow-none bg-success-300 justify-center items-center transition-all active:translate-y-[0.75vw]`}
+              >
                 <svg
-                  width="75"
+                  width="65"
                   height="45"
-                  className="w-[50px] fill-success-500"
+                  className="w-[3.75vw] fill-success-500"
                   viewBox="0 0 75 45"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -319,11 +134,35 @@ export function Exercicios() {
                     </filter>
                   </defs>
                 </svg>
-              ) : index === 1 ? (
+              </button>
+            </PopTrigger>
+            <PopContent
+              state={"completado"}
+              caminho={"/exercicios/1"}
+              titulo={"Exercício 1"}
+              descricao={
+                "Neste exercício você irá praticar a criação de objetos e atribuição de propriedades."
+              }
+            />
+          </Pop>
+        </div>
+
+        <div
+          style={{
+            transform: `translate(${larguraDaImagem * -0.245}px, ${
+              alturaDaImagem * 0.245
+            }px)`,
+          }}
+        >
+          <Pop>
+            <PopTrigger>
+              <button
+                className={`clicked flex rounded-[50%] w-[8vw] h-[5.5vw] shadow-[0_0.75vw_0_0_color(var(--accent-600))] md:active:shadow-none bg-accent-300 justify-center items-center transition-all active:translate-y-[0.75vw]`}
+              >
                 <svg
                   width="59"
                   height="47"
-                  className="w-[50px] fill-accent-600"
+                  className="w-[3.75vw] aspect-square fill-accent-600"
                   viewBox="0 0 59 47"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -374,68 +213,18 @@ export function Exercicios() {
                     </filter>
                   </defs>
                 </svg>
-              ) : (
-                <svg
-                  width="45"
-                  height="50"
-                  viewBox="0 0 45 50"
-                  className="dark:invert w-[40px]"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_i_666_667)">
-                    <path
-                      d="M5.625 50C4.07812 50 2.75391 49.5337 1.65234 48.6012C0.550781 47.6687 0 46.5476 0 45.2381V21.4286C0 20.119 0.550781 18.998 1.65234 18.0655C2.75391 17.1329 4.07812 16.6667 5.625 16.6667H8.4375V11.9048C8.4375 8.61111 9.80859 5.80357 12.5508 3.48214C15.293 1.16071 18.6094 0 22.5 0C26.3906 0 29.707 1.16071 32.4492 3.48214C35.1914 5.80357 36.5625 8.61111 36.5625 11.9048V16.6667H39.375C40.9219 16.6667 42.2461 17.1329 43.3477 18.0655C44.4492 18.998 45 20.119 45 21.4286V45.2381C45 46.5476 44.4492 47.6687 43.3477 48.6012C42.2461 49.5337 40.9219 50 39.375 50H5.625ZM5.625 45.2381H39.375V21.4286H5.625V45.2381ZM22.5 38.0952C24.0469 38.0952 25.3711 37.629 26.4727 36.6964C27.5742 35.7639 28.125 34.6429 28.125 33.3333C28.125 32.0238 27.5742 30.9028 26.4727 29.9702C25.3711 29.0377 24.0469 28.5714 22.5 28.5714C20.9531 28.5714 19.6289 29.0377 18.5273 29.9702C17.4258 30.9028 16.875 32.0238 16.875 33.3333C16.875 34.6429 17.4258 35.7639 18.5273 36.6964C19.6289 37.629 20.9531 38.0952 22.5 38.0952ZM14.0625 16.6667H30.9375V11.9048C30.9375 9.92064 30.1172 8.23413 28.4766 6.84524C26.8359 5.45635 24.8438 4.7619 22.5 4.7619C20.1562 4.7619 18.1641 5.45635 16.5234 6.84524C14.8828 8.23413 14.0625 9.92064 14.0625 11.9048V16.6667Z"
-                      fill="#8B8B8B"
-                    />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_i_666_667"
-                      x="0"
-                      y="0"
-                      width="45"
-                      height="54"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="8" />
-                      <feGaussianBlur stdDeviation="2" />
-                      <feComposite
-                        in2="hardAlpha"
-                        operator="arithmetic"
-                        k2="-1"
-                        k3="1"
-                      />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="shape"
-                        result="effect1_innerShadow_666_667"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-              )}
-            </button>
-          </div>
-        ))}
+              </button>
+            </PopTrigger>
+            <PopContent
+              state={"habilitado"}
+              caminho={"/exercicios/2"}
+              titulo={"Exercício 2"}
+              descricao={
+                "Neste exercício você irá praticar a implementação de métodos em objetos."
+              }
+            />
+          </Pop>
+        </div>
       </section>
     </div>
   );
@@ -1204,7 +993,11 @@ export function Desafios() {
 
 export function Ranking() {
   const { user, signOut } = useAuth();
-  const [activaded, setActivaded] = useState(false);
+  const [activaded, setActivaded] = useState([]);
+
+  useEffect(() => {
+    setActivaded(localStorage.getItem("ranking") === "ativado");
+  }, []);
 
   return (
     <div className="flex flex-col h-full w-full overflow-auto">
@@ -1226,7 +1019,13 @@ export function Ranking() {
             <Switch
               ripple={false}
               checked={activaded}
-              onChange={() => setActivaded(!activaded)}
+              onChange={() => {
+                localStorage.setItem(
+                  "ranking",
+                  !activaded ? "ativado" : "desativado"
+                );
+                setActivaded(!activaded);
+              }}
               className="h-full w-full checked:bg-accent-500"
               containerProps={{
                 className: "w-11 h-6",
@@ -1245,7 +1044,7 @@ export function Ranking() {
               ? Array.from({ length: 10 }, (_, i) => i).map((_, index) => (
                   <div
                     key={index}
-                    className={`flex flex-col gap-4 md:flex-row w-full p-4 rounded-full font-semibold justify-between text-lg transition-all duration-500 border-2 ${
+                    className={`flex flex-col gap-4 md:flex-row w-full p-4 rounded-3xl font-semibold justify-between text-lg transition-all duration-500 border-2 ${
                       index === 6
                         ? "bg-accent-200 border-accent-500 text-accent-500 hover:bg-primary-100"
                         : "border-transparent hover:bg-background-200"
@@ -1307,9 +1106,9 @@ export function Perfil() {
         <div className="flex flex-col gap-3 text-justify w-full md:w-[40vw]">
           <h2
             contentEditable={editarUsuario}
-            className="relative text-accent-600 text-2xl font-bold"
+            className="relative text-3xl font-bold mb-1"
           >
-            {user.displayName}
+            {user && user.displayName}
             <span
               onClick={() => setEditarUsuario(!editarUsuario)}
               className="material-symbols-outlined absolute right-0 top-0 scale-75 aspect-square text-text-900 hover:text-accent-500 rounded-lg p-1 active:bg-accent-700/25 text-[36px]"
@@ -1317,12 +1116,13 @@ export function Perfil() {
               edit
             </span>
           </h2>
-          <p className="text-text-900 font-semibold">
-            Nível: <span className="text-primary-600">Iniciante</span>
+          <p className="font-semibold text-lg">Nível: Iniciante</p>
+          <p className="text-text-900 font-semibold text-lg">
+            Pontuação: 850XP
           </p>
           <p
             contentEditable={editarBiografia}
-            className="relative text-text-900"
+            className="relative font-medium text-base"
           >
             {localStorage.getItem("biografia")}
             <span
@@ -1339,9 +1139,10 @@ export function Perfil() {
           className="w-32 h-32 sm:w-48 sm:h-48 md:w-40 md:h-40 lg:w-36 lg:h-36 rounded-full m-8 mt-0"
         />
       </section>
-      <hr className="my-2 border-accent-600 w-5/6 self-center" />
+      <hr className="my-2 border-accent-950 w-[calc(100%-128px)] self-center" />
+      <p className="ml-16 mt-8 text-xl font-bold">Conquistas</p>
       <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full p-8 px-16">
-        <div className="flex flex-row gap-3 w-full h-24 bg-background-200 shadow-lg rounded-full items-center p-4">
+        <div className="flex flex-row gap-3 w-full h-24 bg-background-200 rounded-2xl items-center p-4">
           <div className="flex flex-col relative">
             <svg
               className="w-12 h-12"
@@ -1380,9 +1181,9 @@ export function Perfil() {
             </p>
           </div>
         </div>
-        {Array.from({ length: 14 }, (_, i) => i + 1).map((item, index) => (
+        {Array.from({ length: 11 }, (_, i) => i + 1).map((item, index) => (
           <div
-            className="flex flex-row gap-3 w-full h-24 bg-background-200 shadow-lg rounded-full items-center p-4"
+            className="flex flex-row gap-3 w-full h-24 bg-gray-200 rounded-2xl items-center p-4"
             key={index}
           >
             {index % 2 === 0 ? (
@@ -1434,9 +1235,51 @@ export function Perfil() {
             )}
             <div className="flex flex-col">
               <p className="text-text-900 font-bold justify-self-center">
-                {index % 2 === 0 ? "Conquista X" : "Conquista Y"}
+                {index === 0
+                  ? "Corporação Cápsula"
+                  : index === 1
+                  ? "Mestre Pokémon"
+                  : index === 2
+                  ? "Instinto Superior"
+                  : index === 3
+                  ? "Mestre dos Magos"
+                  : index === 4
+                  ? "Super Saiyajin"
+                  : index === 5
+                  ? "Batalha Galáctica"
+                  : index === 6
+                  ? "Satoru Gojou"
+                  : index === 7
+                  ? "O Espadachim Negro"
+                  : index === 8
+                  ? "”Você não tem inimigos”"
+                  : index === 9
+                  ? "Rei dos piratas"
+                  : "O Herói Número 1"}
               </p>
-              <p className="text-xs text-text-700">Realizou determinada ação</p>
+              <p className="text-xs text-text-700">
+                {index === 0
+                  ? "Domine o conceito de encapsulamento."
+                  : index === 1
+                  ? "Conclua todos os exercícios da trilha Pokémon."
+                  : index === 2
+                  ? "Conclua todos os exercícios da trilha de Dragon Ball."
+                  : index === 3
+                  ? "Conclua todos os exercícios da trilha de Caverna do Dragão."
+                  : index === 4
+                  ? "Quebre seus limites subindo seu nível."
+                  : index === 5
+                  ? "Participe do Ranking."
+                  : index === 6
+                  ? "Fique em primeiro lugar no Ranking."
+                  : index === 7
+                  ? "Gaste as três vidas em um desafio."
+                  : index === 8
+                  ? "Desative o Ranking."
+                  : index === 9
+                  ? "Conclua todos os desafios."
+                  : "Atinja o nível avançado."}
+              </p>
             </div>
           </div>
         ))}
